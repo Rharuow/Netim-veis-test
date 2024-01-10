@@ -5,12 +5,7 @@ import { MenuIcon } from "lucide-react";
 export const Header = () => {
   return (
     <div className="p-3 flex justify-between items-center">
-      <Image
-        src="./logo.svg"
-        alt="Logo of Netimóveis"
-        width={126}
-        height={36}
-      />
+      <Image src="/logo.svg" alt="Logo of Netimóveis" width={126} height={36} />
 
       <Sheet>
         <SheetTrigger asChild>
