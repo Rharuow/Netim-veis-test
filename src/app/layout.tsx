@@ -1,7 +1,7 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/component/header";
+import { Header } from "@/components/header";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -11,6 +11,9 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Home",
   description: "Home page of netimoveis web page",
+  icons: {
+    icon: "/favicon.ico", // /public path
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={sourceSans.className}>
-        <main className="flex flex-col justify-between">
+        <main className="flex min-h-screen flex-col justify-between">
           <Header />
         </main>
         {children}
