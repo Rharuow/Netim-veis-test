@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/component/header";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={sourceSans.className}>{children}</body>
+      <body className={sourceSans.className}>
+        <main className="flex flex-col justify-between">
+          <Header />
+        </main>
+        {children}
+      </body>
     </html>
   );
 }
