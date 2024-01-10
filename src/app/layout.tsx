@@ -24,10 +24,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={sourceSans.className}>
-        <main className="flex min-h-screen flex-col justify-between">
+        <main className="flex min-h-screen flex-col">
           <Header />
+          {children}
         </main>
-        {children}
       </body>
     </html>
   );
