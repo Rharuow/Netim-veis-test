@@ -72,6 +72,13 @@ export const AdsSection = () => {
                         <Tag key={tag}>{tag}</Tag>
                       ))}
                     </div>
+
+                    <p className="text-[#ED672B] font-bold text-xl">
+                      {flat.Price.toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </p>
                   </div>
                 </div>
               </Card>
