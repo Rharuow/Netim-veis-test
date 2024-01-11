@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { MenuIcon } from "lucide-react";
 
 export const Header = () => {

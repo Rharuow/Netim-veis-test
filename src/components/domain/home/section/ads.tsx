@@ -14,6 +14,7 @@ import flats from "@/service/flats.json";
 import { Card } from "@/components/ui/card";
 
 import emptyImage from "@public/empty-image.json";
+import { Tag } from "@/components/ui/tag";
 
 export const AdsSection = () => {
   return (
@@ -51,17 +52,25 @@ export const AdsSection = () => {
                       <p className="text-center text-sm">Sem imagens</p>
                     </div>
                   )}
-                  <div className="flex flex-col p-4 pb-6">
-                    <p className="font-bold">{flat.Title}</p>
-                    <p className="text-[#848484] text-sm">
-                      {flat.Author}, {flat.City}
-                    </p>
+                  <div className="flex flex-col gap-3 p-4 pb-6">
+                    <div className="flex flex-col gap-1">
+                      <p className="font-bold">{flat.Title}</p>
+                      <p className="text-[#848484] text-sm">
+                        {flat.Author}, {flat.City}
+                      </p>
+                    </div>
                     <div className="flex items-center">
                       <p className="text-sm">{flat.Rooms} Quartos</p>
                       <Dot className="text-[#CACACA]" />
                       <p className="text-sm">Sem Banheiros</p>
                       <Dot className="text-[#CACACA]" />
                       <p className="text-sm">Sem Vagas</p>
+                    </div>
+
+                    <div className="flex gap-3">
+                      {flat.Tags.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
                     </div>
                   </div>
                 </div>
