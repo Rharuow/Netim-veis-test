@@ -18,16 +18,22 @@ import { Tag } from "@/components/ui/tag";
 
 export const AdsSection = () => {
   return (
-    <div className="flex flex-col gap-6 px-4">
-      <p className="text-[#3A3A3A] font-bold text-xl">
-        Novos Anúncios em <span className="text-[#ED672B]">Belo Horizonte</span>
-      </p>
-      <Link href="/" className="text-[#2362AF] text-md flex gap-1 items-center">
-        Ver todos os imóveis <ExternalLink size={14} />
-      </Link>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col px-4">
+        <p className="text-[#3A3A3A] font-bold text-xl">
+          Novos Anúncios em{" "}
+          <span className="text-[#ED672B]">Belo Horizonte</span>
+        </p>
+        <Link
+          href="/"
+          className="text-[#2362AF] text-md flex gap-1 items-center"
+        >
+          Ver todos os imóveis <ExternalLink size={14} />
+        </Link>
+      </div>
 
-      <Carousel className="w-full max-w-xs">
-        <CarouselContent className="w-[96%]">
+      <Carousel className="w-full  ps-4">
+        <CarouselContent className="w-80">
           {flats.map((flat, index) => (
             <CarouselItem key={index}>
               <Card className="overflow-hidden">
