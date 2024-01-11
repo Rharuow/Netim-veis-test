@@ -1,6 +1,19 @@
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
-import { ExternalLink } from "lucide-react";
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import Lottie from "lottie-react";
+import { Dot, ExternalLink } from "lucide-react";
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+
+import flats from "@/service/flats.json";
+import { Card } from "@/components/ui/card";
+
+import emptyImage from "@public/empty-image.json";
 
 export const AdsSection = () => {
   return (
@@ -13,7 +26,49 @@ export const AdsSection = () => {
       </Link>
 
       <Carousel className="w-full max-w-xs">
-        <CarouselContent></CarouselContent>
+        <CarouselContent className="w-[96%]">
+          {flats.map((flat, index) => (
+            <CarouselItem key={index}>
+              <Card className="overflow-hidden">
+                <div className="flex flex-col justify-center">
+                  {flat.ImagesUrl && flat.ImagesUrl.length > 0 ? (
+                    <Image
+                      src={flat.ImagesUrl[0]}
+                      height={0}
+                      alt={`Image to flat ${index}`}
+                      width={0}
+                      priority
+                      sizes="100vw"
+                      className="h-[198px] w-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="h-[198px]">
+                      <Lottie
+                        animationData={emptyImage}
+                        className="h-[150px]"
+                        loop={true}
+                      />
+                      <p className="text-center text-sm">Sem imagens</p>
+                    </div>
+                  )}
+                  <div className="flex flex-col p-4 pb-6">
+                    <p className="font-bold">{flat.Title}</p>
+                    <p className="text-[#848484] text-sm">
+                      {flat.Author}, {flat.City}
+                    </p>
+                    <div className="flex items-center">
+                      <p className="text-sm">{flat.Rooms} Quartos</p>
+                      <Dot className="text-[#CACACA]" />
+                      <p className="text-sm">Sem Banheiros</p>
+                      <Dot className="text-[#CACACA]" />
+                      <p className="text-sm">Sem Vagas</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
       </Carousel>
     </div>
   );
