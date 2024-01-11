@@ -9,8 +9,10 @@ export const Header = () => {
         src="/logo.svg"
         priority
         alt="Logo of Netimóveis"
-        width={126}
-        height={36}
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="h-[36px] w-[126px]"
       />
 
       <Sheet>
