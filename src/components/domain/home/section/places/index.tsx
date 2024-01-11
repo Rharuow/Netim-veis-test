@@ -1,11 +1,11 @@
 "use client";
 import { Separator } from "@radix-ui/react-separator";
 import { Topic } from "./topic";
-import { Tabs } from "@/components/ui/tabs";
+import { TabsPlaces } from "./tabs";
 
 export const PlacesSection = () => {
   return (
-    <div className="flex flex-col gap-12 bg-gradient-to-b from-[#EDF1F4] to-white pt-16">
+    <div className="flex flex-col gap-12 bg-gradient-to-b from-[#EDF1F4] to-white pt-16 overflow-hidden">
       <div className="flex flex-col gap-6  px-4">
         <h2 className="text-3xl font-bold">
           Encontre um lugar que é a sua cara
@@ -43,9 +43,9 @@ export const PlacesSection = () => {
         />
       </div>
 
-      <Separator className="border border-[#E1E5E9]" />
+      <Separator className="border-b-2 border-[#E1E5E9]" />
 
-      <Tabs></Tabs>
+      <TabsPlaces />
     </div>
   );
 };
