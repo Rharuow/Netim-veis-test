@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export const TabsSection = () => {
   return (
-    <div className="flex flex-col gap-4 px-4">
+    <div className="flex flex-col gap-6 px-4">
       <Tabs defaultValue="rent" className="w-full">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="rent">Alugar</TabsTrigger>
