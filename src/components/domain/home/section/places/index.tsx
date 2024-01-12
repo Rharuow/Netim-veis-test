@@ -113,7 +113,10 @@ export const PlacesSection = () => {
           <Carousel>
             <CarouselContent>
               {places.map((place) => (
-                <CarouselItem key={place.placeId} className="basis-4/5">
+                <CarouselItem
+                  key={place.placeId}
+                  className="flex basis-4/5 flex-col gap-6"
+                >
                   {place.imageUrl ? (
                     <Card className="relative overflow-hidden">
                       <Image
@@ -141,6 +144,20 @@ export const PlacesSection = () => {
                       </p>
                     </div>
                   )}
+                  <ul className="flex list-inside list-disc flex-col gap-2 marker:text-[#ED672B]">
+                    <li className="text-sm text-[#4E5254]">
+                      Casas à venda em {place.name}
+                    </li>
+                    <li className="text-sm text-[#4E5254]">
+                      Apto. à venda em {place.name}
+                    </li>
+                    <li className="text-sm text-[#4E5254]">
+                      Casas para Locação em {place.name}
+                    </li>
+                    <li className="text-sm text-[#4E5254]">
+                      Apto. para locação em {place.name}
+                    </li>
+                  </ul>
                 </CarouselItem>
               ))}
             </CarouselContent>
