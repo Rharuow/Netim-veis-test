@@ -12,7 +12,7 @@ import { CarouselPlaces } from "./caousel";
 
 export const PlacesSection = () => {
   return (
-    <div className="flex flex-col gap-12  overflow-hidden">
+    <div className="flex flex-col gap-12 overflow-hidden">
       <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4  pt-16">
         <h2 className="text-3xl font-bold">
           Encontre um lugar que é a sua cara
@@ -118,23 +118,6 @@ export const PlacesSection = () => {
             Ver imóveis em Portugal
           </Button>
           <div className="absolute left-0 top-0 h-[208px] w-full bg-gradient-to-r from-black"></div>
-        </div>
-      </div>
-
-      <div className="relative">
-        <Image
-          alt="Family banner"
-          src="/family-banner.png"
-          height={0}
-          width={0}
-          priority
-          sizes="100vw"
-          className="h-[208px] w-full object-cover object-top"
-        />
-        <div className="absolute right-8 top-3 w-32">
-          <p className="text-xl font-semibold text-white">
-            Todo mundo merece seu cantinho do aconchego.
-          </p>
         </div>
       </div>
     </div>
