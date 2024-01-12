@@ -1,5 +1,6 @@
 import { AdsSection } from "@/components/domain/home/section/ads";
 import { Banner } from "@/components/domain/home/section/banner";
+import { PhrasesSections } from "@/components/domain/home/section/phrases";
 import { PlacesSection } from "@/components/domain/home/section/places";
 import { TabsSection } from "@/components/domain/home/section/tabs";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <TabsSection />
       <AdsSection />
       <PlacesSection />
+      <PhrasesSections />
     </div>
   );
 }
