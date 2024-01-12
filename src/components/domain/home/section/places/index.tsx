@@ -115,7 +115,7 @@ export const PlacesSection = () => {
               {places.map((place) => (
                 <CarouselItem key={place.placeId} className="basis-4/5">
                   {place.imageUrl ? (
-                    <Card className="overflow-hidden">
+                    <Card className="relative overflow-hidden">
                       <Image
                         alt={`place image ${place.name}`}
                         src={place.imageUrl}
@@ -125,15 +125,20 @@ export const PlacesSection = () => {
                         sizes="100vw"
                         className="h-[192px] w-full object-cover object-top"
                       />
+                      <p className="absolute bottom-4 left-4 text-2xl font-bold text-white">
+                        {place.name}
+                      </p>
                     </Card>
                   ) : (
-                    <div className="h-[192px]">
+                    <div className="relative h-[192px] rounded-lg bg-[#ED672B]">
                       <Lottie
                         animationData={emptyImage}
                         className="h-[150px]"
                         loop={true}
                       />
-                      <p className="text-center text-sm">Sem imagens</p>
+                      <p className="absolute bottom-4 left-4 text-2xl font-bold text-white">
+                        {place.name}
+                      </p>
                     </div>
                   )}
                 </CarouselItem>
