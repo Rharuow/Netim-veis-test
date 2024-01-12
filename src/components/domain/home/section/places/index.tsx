@@ -6,19 +6,8 @@ import { Topic } from "./topic";
 import { TabsPlaces } from "./tabs";
 
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-import places from "@/service/place.json";
-import emptyImage from "@public/empty-image.json";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Lottie from "lottie-react";
 import { CarouselPlaces } from "./caousel";
 
 export const PlacesSection = () => {
@@ -106,6 +95,31 @@ export const PlacesSection = () => {
       />
 
       <CarouselPlaces />
+
+      <div className="px-4">
+        <div className="relative overflow-hidden rounded-lg">
+          <Image
+            alt="Portugal banner"
+            src="/portugal-banner.png"
+            height={0}
+            width={0}
+            priority
+            sizes="100vw"
+            className="h-[208px] w-full object-cover object-top"
+          />
+
+          <p className="absolute left-4 top-8 z-10 text-2xl font-bold text-white">
+            Encontre a oportunidade Perfeita em Portugal
+          </p>
+          <Button
+            className="absolute bottom-8 left-4 z-10 bg-white text-[#E95808]"
+            onClick={() => console.log("go to portugal properties")}
+          >
+            Ver imóveis em Portugal
+          </Button>
+          <div className="absolute left-0 top-0 h-[208px] w-full bg-gradient-to-r from-black"></div>
+        </div>
+      </div>
     </div>
   );
 };
