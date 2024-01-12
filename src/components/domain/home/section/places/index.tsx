@@ -1,19 +1,33 @@
 "use client";
-import { Separator } from "@radix-ui/react-separator";
-import { Topic } from "./topic";
-import { TabsPlaces } from "./tabs";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Topic } from "./topic";
+import { TabsPlaces } from "./tabs";
+
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
+import places from "@/service/place.json";
+import emptyImage from "@public/empty-image.json";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Lottie from "lottie-react";
 
 export const PlacesSection = () => {
   return (
     <div className="flex flex-col gap-12  overflow-hidden">
-      <div className="flex flex-col gap-6 pt-16 bg-gradient-to-b from-[#EDF1F4] to-white  px-4">
+      <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4  pt-16">
         <h2 className="text-3xl font-bold">
           Encontre um lugar que é a sua cara
         </h2>
-        <p className="text-xl text-[#808587] font-normal">
+        <p className="text-xl font-normal text-[#808587]">
           A Netimóveis te proporciona uma experiência ágil e segura neste
           momento tão importante que é decidir um lar.
         </p>
@@ -52,9 +66,9 @@ export const PlacesSection = () => {
 
       <div className="flex flex-col gap-10 px-4">
         <div className="flex flex-col gap-3">
-          <p className="text-[#ED672B] font-bold">Quer vender?</p>
+          <p className="font-bold text-[#ED672B]">Quer vender?</p>
 
-          <h1 className="text-[#4E5254] font-bold text-4xl">
+          <h1 className="text-4xl font-bold text-[#4E5254]">
             Anuncie grátis para mais de 100 mil pessoas todos os dias.
           </h1>
         </div>
@@ -72,7 +86,7 @@ export const PlacesSection = () => {
           <div>
             <Link
               href="/"
-              className="text-[#393B3D] border-b border-[#C0C7CA] text-sm"
+              className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
             >
               Saiba Quanto vale seu imóvel
             </Link>
@@ -89,6 +103,49 @@ export const PlacesSection = () => {
         sizes="100vw"
         className="h-[192px] w-full object-cover object-top"
       />
+
+      <div className="relative grid grid-cols-3 gap-y-6 px-4">
+        <p className="col-span-2 font-bold text-[#4E5254]">
+          Prontos para te Receber em mais de 10 estados
+        </p>
+
+        <div className="col-span-3">
+          <Carousel>
+            <CarouselContent>
+              {places.map((place) => (
+                <CarouselItem key={place.placeId} className="basis-4/5">
+                  {place.imageUrl ? (
+                    <Card className="overflow-hidden">
+                      <Image
+                        alt={`place image ${place.name}`}
+                        src={place.imageUrl}
+                        height={0}
+                        width={0}
+                        priority
+                        sizes="100vw"
+                        className="h-[192px] w-full object-cover object-top"
+                      />
+                    </Card>
+                  ) : (
+                    <div className="h-[192px]">
+                      <Lottie
+                        animationData={emptyImage}
+                        className="h-[150px]"
+                        loop={true}
+                      />
+                      <p className="text-center text-sm">Sem imagens</p>
+                    </div>
+                  )}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="absolute right-12 top-[-50px] flex ">
+              <CarouselNext />
+              <CarouselPrevious />
+            </div>
+          </Carousel>
+        </div>
+      </div>
     </div>
   );
 };

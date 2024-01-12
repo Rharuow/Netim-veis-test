@@ -5,7 +5,8 @@
       "name": "Minas Gerais",
       "shortname": "MG"
     },
-    "placeId": 1
+    "placeId": 1,
+    "imageUrl": "https://offloadmedia.feverup.com/belohorizontesecreto.com/wp-content/uploads/2023/08/21122832/mirantes-em-belo-horizonte.jpg"
   },
   {
     "name": "Fortaleza",
@@ -13,7 +14,8 @@
       "name": "Ceará",
       "shortname": "CE"
     },
-    "placeId": 2
+    "placeId": 2,
+    "imageUrl": null
   },
   {
     "name": "São Paulo",
@@ -21,6 +23,7 @@
       "name": "São Paulo",
       "shortname": "SP"
     },
-    "placeId": 5
+    "placeId": 5,
+    "imageUrl": null
   }
 ]
