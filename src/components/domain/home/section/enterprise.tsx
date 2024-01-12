@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
 export const EnterpriseSection = () => {
@@ -39,6 +40,16 @@ export const EnterpriseSection = () => {
           Saiba Quanto vale seu imóvel
         </Link>
       </div>
+
+      <Image
+        src="/puzzle.png"
+        priority
+        alt="puzzle image"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="h-full w-full"
+      />
     </div>
   );
 };
