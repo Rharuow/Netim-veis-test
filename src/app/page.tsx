@@ -11,6 +11,7 @@ export default function Home() {
       <TabsSection />
       <AdsSection />
       <PlacesSection />
+
       <PhrasesSections />
     </div>
   );
