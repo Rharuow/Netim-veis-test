@@ -12,22 +12,50 @@ export const TabsSection = () => {
           <TabsTrigger value="rent">Alugar</TabsTrigger>
           <TabsTrigger value="buy">Comprar</TabsTrigger>
         </TabsList>
-        <TabsContent value="rent" className="pt-6 flex flex-col gap-4">
-          <Card className="py-4 px-6 flex flex-col gap-1">
+        <TabsContent value="rent" className=" flex flex-col gap-4 ">
+          <Card className="flex flex-col gap-1 px-6 py-4">
             <div className="flex items-center gap-2">
-              <MapPin className="text-[#A1A7AA] text-sm" />
-              <p className="text-[#393B3D] font-bold text-sm">Localização</p>
+              <MapPin className="text-sm text-[#A1A7AA]" />
+              <p className="text-sm font-bold text-[#393B3D]">Localização</p>
             </div>
             <div className="flex">
               <p className="text-[#808487]">Qual é a sua localização?</p>
             </div>
           </Card>
 
-          <Card className="py-4 px-6">
-            <div className="flex justify-between items-center">
+          <Card className="px-6 py-4">
+            <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bed className="text-[#A1A7AA]" />
-                <p className="text-[#393B3D] font-bold text-sm">
+                <p className="text-sm font-bold text-[#393B3D]">
+                  Nº de Quartos
+                </p>
+              </div>
+              <div className="flex">
+                <ChevronDown className="text-[#555555]" size={18} />
+              </div>
+            </div>
+            <div className="flex">
+              <p className="text-[#808487]">Quantos Quartos?</p>
+            </div>
+          </Card>
+        </TabsContent>
+        <TabsContent value="buy" className="m-0 flex flex-col gap-4">
+          <Card className="flex flex-col gap-1 px-6 py-4">
+            <div className="flex items-center gap-2">
+              <MapPin className="text-sm text-[#A1A7AA]" />
+              <p className="text-sm font-bold text-[#393B3D]">Localização</p>
+            </div>
+            <div className="flex">
+              <p className="text-[#808487]">Qual é a sua localização?</p>
+            </div>
+          </Card>
+
+          <Card className="px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Bed className="text-[#A1A7AA]" />
+                <p className="text-sm font-bold text-[#393B3D]">
                   Nº de Quartos
                 </p>
               </div>
