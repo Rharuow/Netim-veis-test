@@ -23,10 +23,14 @@ export const Topic = ({
   secondLinkPath: string;
 }) => {
   return (
-    <div className="flex flex-wrap gap-6">
-      <div className="after:border after:border-[#E95808]"></div>
-      <p className="text-[#4E5254] font-bold text-2xl">{title}</p>
-      <p className="text-[#808587] ">{subtitle}</p>
+    <div className="flex flex-col gap-6">
+      <div className="flex gap-6">
+        <div className="after:border after:border-[#E95808]"></div>
+        <div className="w-full">
+          <p className="text-2xl font-bold text-[#4E5254]">{title}</p>
+          <p className="text-[#808587] ">{subtitle}</p>
+        </div>
+      </div>
       <Button
         variant="outline"
         className=" border border-[#8A2CB1] text-[#8A2CB1]"
@@ -38,19 +42,23 @@ export const Topic = ({
         {buttonText}
       </Button>
 
-      <Link
-        href={firstLinkPath}
-        className="text-[#393B3D] border-b border-[#C0C7CA] text-sm"
-      >
-        {firstLinkText}
-      </Link>
+      <div>
+        <Link
+          href={firstLinkPath}
+          className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+        >
+          {firstLinkText}
+        </Link>
+      </div>
 
-      <Link
-        href={secondLinkPath}
-        className="text-[#393B3D] border-b border-[#C0C7CA] text-sm"
-      >
-        {secondLinkText}
-      </Link>
+      <div>
+        <Link
+          href={secondLinkPath}
+          className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+        >
+          {secondLinkText}
+        </Link>
+      </div>
     </div>
   );
 };
