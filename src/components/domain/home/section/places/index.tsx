@@ -12,7 +12,7 @@ import { CarouselPlaces } from "./caousel";
 
 export const PlacesSection = () => {
   return (
-    <div className="flex flex-col gap-12 overflow-hidden">
+    <div className="flex flex-col gap-12 overflow-hidden" id="places">
       <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4  pt-16">
         <h2 className="text-3xl font-bold">
           Encontre um lugar que é a sua cara
