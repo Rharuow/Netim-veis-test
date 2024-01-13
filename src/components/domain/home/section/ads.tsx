@@ -20,13 +20,13 @@ export const AdsSection = () => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col px-4">
-        <p className="text-[#3A3A3A] font-bold text-xl">
+        <p className="text-xl font-bold text-[#3A3A3A]">
           Novos Anúncios em{" "}
           <span className="text-[#ED672B]">Belo Horizonte</span>
         </p>
         <Link
           href="/"
-          className="text-[#2362AF] text-md flex gap-1 items-center"
+          className="text-md flex items-center gap-1 text-[#2362AF]"
         >
           Ver todos os imóveis <ExternalLink size={14} />
         </Link>
@@ -49,19 +49,21 @@ export const AdsSection = () => {
                       className="h-[198px] w-full object-cover object-top"
                     />
                   ) : (
-                    <div className="h-[198px]">
+                    <div className="h-[198px] bg-[#ED672B]">
                       <Lottie
                         animationData={emptyImage}
                         className="h-[150px]"
                         loop={true}
                       />
-                      <p className="text-center text-sm">Sem imagens</p>
+                      <p className="text-center text-sm font-bold">
+                        Sem imagens
+                      </p>
                     </div>
                   )}
                   <div className="flex flex-col gap-3 p-4 pb-6">
                     <div className="flex flex-col gap-1">
                       <p className="font-bold">{flat.Title}</p>
-                      <p className="text-[#848484] text-sm">
+                      <p className="text-sm text-[#848484]">
                         {flat.Author}, {flat.City}
                       </p>
                     </div>
@@ -79,7 +81,7 @@ export const AdsSection = () => {
                       ))}
                     </div>
 
-                    <p className="text-[#ED672B] font-bold text-xl">
+                    <p className="text-xl font-bold text-[#ED672B]">
                       {flat.Price.toLocaleString("pt-BR", {
                         style: "currency",
                         currency: "BRL",
