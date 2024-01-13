@@ -19,7 +19,7 @@ export const TabsSection = () => {
               <p className="text-sm font-bold text-[#393B3D]">Localização</p>
             </div>
             <div className="flex">
-              <p className="text-[#808487]">Qual é a sua localização?</p>
+              <p className="text-[#808487]">Qual é a Localização?</p>
             </div>
           </Card>
 
