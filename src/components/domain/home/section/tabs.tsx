@@ -3,6 +3,7 @@ import { MapPin, Bed, ChevronDown, Search } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export const TabsSection = () => {
   return (
@@ -19,7 +20,7 @@ export const TabsSection = () => {
               <p className="text-sm font-bold text-[#393B3D]">Localização</p>
             </div>
             <div className="flex">
-              <p className="text-[#808487]">Qual é a Localização?</p>
+              <Input placeholder="Qual é a Localização?" />
             </div>
           </Card>
 
@@ -36,7 +37,12 @@ export const TabsSection = () => {
               </div>
             </div>
             <div className="flex">
-              <p className="text-[#808487]">Quantos Quartos?</p>
+              <Input
+                placeholder="Quantos Quartos?"
+                type="number"
+                inputMode="numeric"
+                min={0}
+              />
             </div>
           </Card>
         </TabsContent>
