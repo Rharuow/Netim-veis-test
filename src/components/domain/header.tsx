@@ -4,7 +4,7 @@ import { MenuIcon } from "lucide-react";
 
 export const Header = () => {
   return (
-    <div className="p-3 flex justify-between items-center">
+    <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3">
       <Image
         src="/logo.svg"
         priority
