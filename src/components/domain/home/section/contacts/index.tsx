@@ -3,7 +3,10 @@ import { Topics } from "./topics";
 
 export const ContactsSection = () => {
   return (
-    <div className="flex flex-col gap-8 bg-[#E3E7EC] px-4 pb-12 pt-12">
+    <div
+      className="flex flex-col gap-8 bg-[#E3E7EC] px-4 pb-12 pt-12"
+      id="contacts"
+    >
       <Topics
         title="A Netimóveis"
         topics={[
