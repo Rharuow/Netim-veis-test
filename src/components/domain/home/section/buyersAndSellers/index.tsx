@@ -5,7 +5,7 @@ import { Notice } from "./notice";
 
 export const BuyersAndSellersSection = () => {
   return (
-    <div className="flex flex-col gap-10 px-4 pt-20">
+    <div className="flex flex-col gap-10 px-4 pt-20" id="buyersAndSellers">
       <div className="flex flex-col gap-4">
         <h1 className="text-xl font-bold text-[#4E5254]">
           Para compradores, vendedores ou curiosos :)
@@ -14,6 +14,7 @@ export const BuyersAndSellersSection = () => {
         <Link
           href="#"
           className="text-md flex items-center gap-1 text-[#2362AF]"
+          id="blogs"
         >
           Ver mais no Blog <ExternalLink size={14} />
         </Link>
