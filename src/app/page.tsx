@@ -1,6 +1,7 @@
 import { AdsSection } from "@/components/domain/home/section/ads";
 import { Banner } from "@/components/domain/home/section/banner";
 import { BuyersAndSellersSection } from "@/components/domain/home/section/buyersAndSellers";
+import { ContactsSection } from "@/components/domain/home/section/contacts";
 import { EnterpriseSection } from "@/components/domain/home/section/enterprise";
 import { KindSection } from "@/components/domain/home/section/kindPlaces";
 import { PhrasesSections } from "@/components/domain/home/section/phrases";
@@ -18,6 +19,7 @@ export default function Home() {
       <BuyersAndSellersSection />
       <EnterpriseSection />
       <KindSection />
+      <ContactsSection />
     </div>
   );
 }
