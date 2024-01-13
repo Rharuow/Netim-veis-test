@@ -1,3 +1,4 @@
+"use client";
 import { MapPin, Bed, ChevronDown, Search } from "lucide-react";
 
 import { Card } from "@/components/ui/card";
@@ -20,7 +21,12 @@ export const TabsSection = () => {
               <p className="text-sm font-bold text-[#393B3D]">Localização</p>
             </div>
             <div className="flex">
-              <Input placeholder="Qual é a Localização?" />
+              <Input
+                placeholder="Qual é a Localização?"
+                onFocus={() => {
+                  console.log("FOCUS");
+                }}
+              />
             </div>
           </Card>
 
