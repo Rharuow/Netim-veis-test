@@ -1,0 +1,167 @@
+[
+  {
+    "City": "Fortaleza",
+    "Title": "Seaview Penthouse in Fortaleza",
+    "Author": "Oceanfront Realty",
+    "ImagesUrl": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWygaLWZJCvVZOJ6VpBDRlu-cbNRic7Bge7A&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB9R85ymYmBIUVqLb8fEotn21-oKFLKDIDuw&usqp=CAU"
+    ],
+    "Rooms": 4,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 900000
+  },
+  {
+    "City": "Fortaleza",
+    "Title": "Modern Loft in Fortaleza",
+    "Author": "Cityscape Properties",
+    "ImagesUrl": [],
+    "Rooms": 1,
+    "Tags": ["elevator", "furniture"],
+    "Price": 300000
+  },
+  {
+    "City": "Fortaleza",
+    "Title": "Family-Friendly Apartment",
+    "Author": "Sunset Homes",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["furniture", "parking"],
+    "Price": 550000
+  },
+  {
+    "City": "Fortaleza",
+    "Title": "Resort-Style Living in Fortaleza",
+    "Author": "Tropical Real Estate",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 700000
+  },
+  {
+    "City": "Fortaleza",
+    "Title": "Luxury Apartment in Fortaleza",
+    "Author": "Real Estate Company A",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 500000
+  },
+  {
+    "City": "Fortaleza",
+    "Title": "Cozy Apartment in Fortaleza",
+    "Author": "Comfort Homes",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["furniture", "parking"],
+    "Price": 400000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Hillside Villa in Belo Horizonte",
+    "Author": "Elevated Estates",
+    "ImagesUrl": null,
+    "Rooms": 5,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 1200000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Historic District Apartment",
+    "Author": "Heritage Homes",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["furniture", "parking"],
+    "Price": 400000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Executive Suite in Belo Horizonte",
+    "Author": "Business Residences",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["elevator", "furniture"],
+    "Price": 600000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Scenic View Condo",
+    "Author": "Vista Homes",
+    "ImagesUrl": null,
+    "Rooms": 4,
+    "Tags": ["elevator", "parking"],
+    "Price": 900000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Cozy Apartment in Belo Horizonte",
+    "Author": "Urban Living Properties",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["elevator", "parking"],
+    "Price": 550000
+  },
+  {
+    "City": "Belo Horizonte",
+    "Title": "Downtown Penthouse in Belo Horizonte",
+    "Author": "City Center Residences",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["furniture", "parking"],
+    "Price": 700000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "Sky-High Skyscraper Residence",
+    "Author": "Altitude Living",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 1100000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "Artistic Studio in São Paulo",
+    "Author": "Creative Spaces",
+    "ImagesUrl": null,
+    "Rooms": 1,
+    "Tags": ["furniture"],
+    "Price": 350000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "Tech Hub Apartment",
+    "Author": "Innovation Homes",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["elevator", "furniture", "parking"],
+    "Price": 650000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "Premium Downtown Condo",
+    "Author": "Metropolitan Realty",
+    "ImagesUrl": null,
+    "Rooms": 4,
+    "Tags": ["elevator", "parking"],
+    "Price": 850000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "Modern Loft in São Paulo",
+    "Author": "Urban Innovators",
+    "ImagesUrl": null,
+    "Rooms": 2,
+    "Tags": ["furniture", "parking"],
+    "Price": 500000
+  },
+  {
+    "City": "São Paulo",
+    "Title": "City Center Penthouse",
+    "Author": "Downtown Living",
+    "ImagesUrl": null,
+    "Rooms": 3,
+    "Tags": ["elevator", "furniture"],
+    "Price": 700000
+  }
+]
