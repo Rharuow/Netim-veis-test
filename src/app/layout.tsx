@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import { Header } from "@/components/domain/header";
+import { Footer } from "@/components/domain/footer";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <main className="flex min-h-screen flex-col">
           <Header />
           {children}
+          <Footer />
         </main>
       </body>
     </html>
