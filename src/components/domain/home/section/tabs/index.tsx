@@ -5,11 +5,17 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { LocationTips } from "./locationTips";
+import { useForm, useWatch } from "react-hook-form";
 
 export const TabsSection = () => {
+  const { register, control } = useForm();
+
+  const watchLocation = useWatch({ name: "location", control });
+
   return (
     <div className="flex flex-col gap-6 px-4">
-      <Tabs defaultValue="rent" className="w-full">
+      <Tabs defaultValue="rent" className=" w-full">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="rent">Alugar</TabsTrigger>
           <TabsTrigger value="buy">Comprar</TabsTrigger>
@@ -26,8 +32,14 @@ export const TabsSection = () => {
                 onFocus={() => {
                   console.log("FOCUS");
                 }}
+                {...register("location", {
+                  onBlur: () => {
+                    console.log("BLUR");
+                  },
+                })}
               />
             </div>
+            <LocationTips value={watchLocation} />
           </Card>
 
           <Card className="px-6 py-4">
@@ -52,7 +64,7 @@ export const TabsSection = () => {
             </div>
           </Card>
         </TabsContent>
-        <TabsContent value="buy" className="m-0 flex flex-col gap-4">
+        <TabsContent value="buy" className="relative m-0 flex flex-col gap-4">
           <Card className="flex flex-col gap-1 px-6 py-4">
             <div className="flex items-center gap-2">
               <MapPin className="text-sm text-[#A1A7AA]" />
