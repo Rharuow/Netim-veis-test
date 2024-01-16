@@ -9,7 +9,10 @@ export interface SelectProps
 
 const Select = React.forwardRef<
   HTMLInputElement,
-  SelectProps & { options: Array<string>; handleSelect?: () => void }
+  SelectProps & {
+    options: Array<string>;
+    handleSelect?: (option: string) => void;
+  }
 >(({ className, type, options, handleSelect, ...props }, ref) => {
   const [showOptions, setShowOptions] = React.useState<boolean>();
   return (
@@ -59,7 +62,7 @@ const Select = React.forwardRef<
           {options.map((option, index) => (
             <p
               onMouseDown={() => {
-                handleSelect && handleSelect();
+                handleSelect && handleSelect(option);
               }}
               className={cn("hover:bg-[#D0D5D8]", {
                 "bg-[#dadfe3]": index % 2 === 0,

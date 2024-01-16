@@ -15,7 +15,7 @@ export const TabsSection = () => {
   const { register, control, setValue } = useForm({
     defaultValues: {
       location: "",
-      amountROoms: undefined,
+      amountRooms: undefined,
     },
   });
 
@@ -23,7 +23,7 @@ export const TabsSection = () => {
   const [isAmountRoomsOpen, setIsAmountRoomsOpen] = useState<boolean>();
 
   const watchLocation = useWatch({ name: "location", control });
-  const watchAmountRooms = useWatch({ name: "amountROoms", control });
+  const watchAmountRooms = useWatch({ name: "amountRooms", control });
   const inputRef = useRef<HTMLDivElement>(null);
   const handleSelectedLocation = (value: string) => {
     setValue("location", value);
@@ -98,7 +98,13 @@ export const TabsSection = () => {
                   Nº de Quartos
                 </p>
               </div>
-              <div className="flex">
+              <div
+                className="flex"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsAmountRoomsOpen((prev) => !prev);
+                }}
+              >
                 <ChevronDown
                   className={cn("text-[#555555] duration-300", {
                     "rotate-180": isAmountRoomsOpen,
@@ -111,7 +117,7 @@ export const TabsSection = () => {
             <div className="flex">
               <Input
                 placeholder="Quantos Quartos?"
-                {...register("amountROoms")}
+                {...register("amountRooms")}
                 readOnly
               />
             </div>
