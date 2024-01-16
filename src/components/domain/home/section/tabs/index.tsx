@@ -89,8 +89,27 @@ export const TabsSection = () => {
               <p className="text-sm font-bold text-[#393B3D]">Localização</p>
             </div>
             <div className="flex">
-              <p className="text-[#808487]">Qual é a sua localização?</p>
+              <Input
+                placeholder="Qual é a Localização?"
+                className="truncate"
+                onFocus={() => setIsLocationTipsOpen(true)}
+                {...register("location", {
+                  onBlur: () => setIsLocationTipsOpen(false),
+                })}
+              />
             </div>
+
+            {isLocationTipsOpen !== undefined && (
+              <LocationTips
+                handleSelectedLocation={handleSelectedLocation}
+                value={watchLocation}
+                className={
+                  isLocationTipsOpen
+                    ? "animate-accordion-down"
+                    : "animate-accordion-up border-none"
+                }
+              />
+            )}
           </Card>
 
           <Card className="px-6 py-4">
