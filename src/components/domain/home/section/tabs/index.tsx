@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LocationTips } from "./locationTips";
 import { useForm, useWatch } from "react-hook-form";
+import { useState } from "react";
 
 export const TabsSection = () => {
   const { register, control } = useForm();
 
+  const [isLocationTipsOpen, setIsLocationTipsOpen] = useState(false);
   const watchLocation = useWatch({ name: "location", control });
 
   return (
@@ -29,17 +31,14 @@ export const TabsSection = () => {
             <div className="flex">
               <Input
                 placeholder="Qual é a Localização?"
-                onFocus={() => {
-                  console.log("FOCUS");
-                }}
+                onFocus={() => setIsLocationTipsOpen(true)}
                 {...register("location", {
-                  onBlur: () => {
-                    console.log("BLUR");
-                  },
+                  onBlur: () => setIsLocationTipsOpen(false),
                 })}
               />
             </div>
-            <LocationTips value={watchLocation} />
+
+            <LocationTips value={watchLocation} isOpen={isLocationTipsOpen} />
           </Card>
 
           <Card className="px-6 py-4">
