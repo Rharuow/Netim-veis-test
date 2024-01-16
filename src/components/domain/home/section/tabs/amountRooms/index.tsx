@@ -6,13 +6,7 @@ import { cn } from "@/lib/utils";
 
 import { Buttons } from "./buttons";
 import { Separator } from "@/components/ui/separator";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select } from "@/components/ui/select";
 
 export const AmountRooms = React.forwardRef<
   HTMLDivElement,
@@ -30,16 +24,10 @@ export const AmountRooms = React.forwardRef<
         <Separator className="border-[#E1E5E9]" />
         <div className="flex flex-col gap-1">
           <p className="text-sm text-[#393B3D]">Tipo de Propriedade</p>
-          <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Todos os tipos" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Option 1">Option 1</SelectItem>
-              <SelectItem value="Option 2">Option 2</SelectItem>
-              <SelectItem value="Option 3">Option 3</SelectItem>
-            </SelectContent>
-          </Select>
+          <Select
+            placeholder="Todos os tipos"
+            options={["Option 1", "Option 2", "Option 3"]}
+          />
         </div>
       </div>
     </Card>
