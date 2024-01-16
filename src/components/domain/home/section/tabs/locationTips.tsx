@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import Lottie from "lottie-react";
 import { MapPin } from "lucide-react";
@@ -11,53 +10,64 @@ import { cn } from "@/lib/utils";
 import emptyLocation from "@public/empty-location.json";
 import locationsData from "@/service/locations.json";
 
+const handleFilterLocation = (value?: string) => {
+  return value
+    ? locationsData.locais
+        .filter((local) => {
+          let rua: string | undefined;
+          let bairro: string | undefined;
+          let cidade: string | undefined;
+          let estado: string | undefined;
+          if (value.includes(",")) {
+            const address = value.split(", ");
+            rua = address[0].trim();
+            bairro = address.length > 1 ? address[1].trim() : undefined;
+            cidade =
+              address.length > 2
+                ? address[2].split(" - ")[0]?.trim()
+                : undefined;
+            if (value.includes("-")) {
+              estado = address[2].split(" - ")[1]?.trim();
+            }
+          }
+
+          return rua && bairro && cidade && estado
+            ? local.rua.includes(rua) &&
+                local.bairro.includes(bairro) &&
+                local.cidade.includes(cidade) &&
+                local.estado.includes(estado)
+            : rua && bairro && cidade
+              ? local.rua.includes(rua) &&
+                local.bairro.includes(bairro) &&
+                local.cidade.includes(cidade)
+              : rua && bairro
+                ? local.rua.includes(rua) && local.bairro.includes(bairro)
+                : rua
+                  ? local.rua.includes(rua)
+                  : local.rua.includes(value) ||
+                    local.bairro.includes(value) ||
+                    local.cidade.includes(value) ||
+                    local.estado.includes(value);
+        })
+        .filter((_, index) => index < 5)
+    : locationsData.locais.filter((_, index) => index < 5);
+};
+
 export const LocationTips = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { value?: string; isOpen?: boolean }
->(({ className, value, isOpen, ...props }, ref) => {
-  const [locations, setLocations] = React.useState(
-    value
-      ? locationsData.locais
-          .filter(
-            (local) =>
-              local.bairro.includes(value) ||
-              local.cidade.includes(value) ||
-              local.estado.includes(value) ||
-              local.rua.includes(value),
-          )
-          .filter((_, index) => index < 5)
-      : locationsData.locais.filter((_, index) => index < 5),
-  );
+  React.HTMLAttributes<HTMLDivElement> & {
+    value?: string;
+    handleSelectedLocation: (value: string) => void;
+  }
+>(({ className, value, handleSelectedLocation, ...props }, ref) => {
+  const [locations, setLocations] = React.useState(handleFilterLocation(value));
 
   React.useEffect(() => {
-    value
-      ? setLocations(
-          locationsData.locais
-            .filter(
-              (local) =>
-                local.bairro.includes(value) ||
-                local.cidade.includes(value) ||
-                local.estado.includes(value) ||
-                local.rua.includes(value),
-            )
-            .filter((_, index) => index < 5),
-        )
-      : setLocations(locationsData.locais.filter((_, index) => index < 5));
+    setLocations(handleFilterLocation(value));
   }, [value]);
 
   return (
-    <Card
-      ref={ref}
-      className={cn(
-        "overflow-hidden",
-        {
-          "animate-accordion-up border-none": !isOpen,
-          "animate-accordion-down": isOpen,
-        },
-        className,
-      )}
-      {...props}
-    >
+    <Card ref={ref} className={cn("overflow-hidden", className)} {...props}>
       <Input
         className="text-sm placeholder:text-center placeholder:text-[#A1A7AA]"
         placeholder="Busque por cidade, região, bairro ou código"
@@ -75,7 +85,11 @@ export const LocationTips = React.forwardRef<
             <div
               className="flex gap-3 px-3 py-2"
               key={index}
-              onMouseDown={() => console.log("mousedown")}
+              onMouseDown={() =>
+                handleSelectedLocation(
+                  `${local.rua}, ${local.bairro}, ${local.cidade} - ${local.estado} `,
+                )
+              }
             >
               <MapPin className="mt-[6px] text-[#A1A7AA]" size={14} />
               <div className="flex flex-col gap-1">

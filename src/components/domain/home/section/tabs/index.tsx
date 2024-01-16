@@ -10,10 +10,18 @@ import { useForm, useWatch } from "react-hook-form";
 import { useState } from "react";
 
 export const TabsSection = () => {
-  const { register, control } = useForm();
+  const { register, control, setValue } = useForm({
+    defaultValues: {
+      location: "",
+    },
+  });
 
-  const [isLocationTipsOpen, setIsLocationTipsOpen] = useState(false);
+  const [isLocationTipsOpen, setIsLocationTipsOpen] = useState<boolean>();
   const watchLocation = useWatch({ name: "location", control });
+
+  const handleSelectedLocation = (value: string) => {
+    setValue("location", value);
+  };
 
   return (
     <div className="flex flex-col gap-6 px-4">
@@ -31,6 +39,7 @@ export const TabsSection = () => {
             <div className="flex">
               <Input
                 placeholder="Qual é a Localização?"
+                className="truncate"
                 onFocus={() => setIsLocationTipsOpen(true)}
                 {...register("location", {
                   onBlur: () => setIsLocationTipsOpen(false),
@@ -38,7 +47,17 @@ export const TabsSection = () => {
               />
             </div>
 
-            <LocationTips value={watchLocation} isOpen={isLocationTipsOpen} />
+            {isLocationTipsOpen !== undefined && (
+              <LocationTips
+                handleSelectedLocation={handleSelectedLocation}
+                value={watchLocation}
+                className={
+                  isLocationTipsOpen
+                    ? "animate-accordion-down"
+                    : "animate-accordion-up border-none"
+                }
+              />
+            )}
           </Card>
 
           <Card className="px-6 py-4">

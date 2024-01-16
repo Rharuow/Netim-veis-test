@@ -63,14 +63,14 @@ const config = {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
-        // "accordion-up": {
-        //   from: { height: "var(--radix-accordion-content-height)" },
-        //   to: { height: "0" },
-        // },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 3s ease-in-out forwards",
-        "accordion-up": "accordion-down 3s ease-in-out reverse forwards",
+        "accordion-down": "accordion-down 0.2s ease-out forwards",
+        "accordion-up": "accordion-up 0.2s ease-out forwards",
       },
     },
   },
