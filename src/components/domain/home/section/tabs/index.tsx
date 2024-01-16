@@ -89,6 +89,7 @@ export const TabsSection = () => {
           <Card
             className="px-6 py-4"
             ref={inputRef} // Attach the ref to the Input component
+            onClick={() => setIsAmountRoomsOpen(true)}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -99,7 +100,6 @@ export const TabsSection = () => {
               </div>
               <div className="flex">
                 <ChevronDown
-                  onClick={() => setIsAmountRoomsOpen(true)}
                   className={cn("text-[#555555] duration-300", {
                     "rotate-180": isAmountRoomsOpen,
                     "rotate-0": !isAmountRoomsOpen,
@@ -111,7 +111,6 @@ export const TabsSection = () => {
             <div className="flex">
               <Input
                 placeholder="Quantos Quartos?"
-                onClick={() => setIsAmountRoomsOpen(true)}
                 {...register("amountROoms")}
                 readOnly
               />
