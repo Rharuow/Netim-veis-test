@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 
 export const Header = () => {
   return (
-    <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3">
+    <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3 lg:justify-normal lg:gap-12">
       <Image
         src="/logo.svg"
         priority
@@ -18,11 +18,38 @@ export const Header = () => {
         className="h-[36px] w-[126px]"
       />
 
+      <div className="hidden lg:flex lg:grow lg:gap-10">
+        <Link className="text-[#555555]" href="/#places">
+          Imobiliárias
+        </Link>
+        <Link className="text-[#555555]" href="/#buyersAndSellers">
+          Quero me Associar
+        </Link>
+        <Link className="text-[#555555]" href="/#contacts">
+          Sobre
+        </Link>
+        <Link className="text-[#555555]" href="/#blogs">
+          Blog
+        </Link>
+      </div>
+
+      <div className="hidden lg:flex lg:grow lg:items-center lg:gap-8">
+        <Button
+          className="rounded-full border-[#652D91] text-[#652D91]"
+          variant="outline"
+        >
+          Anunciar Imóvel
+        </Button>
+        <Link className="text-[#555555]" href="#">
+          Entrar
+        </Link>
+      </div>
+
       <Sheet>
-        <SheetTrigger asChild>
+        <SheetTrigger asChild className="lg:hidden">
           <MenuIcon className="text-[#4E5254]" />
         </SheetTrigger>
-        <SheetContent side="right" className="flex flex-col gap-6">
+        <SheetContent side="right" className="flex flex-col gap-6 lg:hidden">
           <div className="flex flex-col gap-3">
             <SheetClose asChild>
               <Link className="text-[#555555]" href="/#places">
@@ -54,7 +81,7 @@ export const Header = () => {
             </SheetClose>
             <SheetClose asChild>
               <Button
-                className="border-[#652D91] text-[#652D91]"
+                className="rounded-full border-[#652D91] text-[#652D91]"
                 variant="outline"
               >
                 Anunciar Imóvel
