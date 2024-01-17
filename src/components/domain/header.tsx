@@ -9,7 +9,7 @@ export const Header = () => {
   return (
     <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3 lg:justify-normal lg:gap-12">
       <Image
-        src="/logo.svg"
+        src="/logo.png"
         priority
         alt="Logo of Netimóveis"
         width={0}

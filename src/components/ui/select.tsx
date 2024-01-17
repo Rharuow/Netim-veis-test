@@ -35,7 +35,7 @@ const Select = React.forwardRef<
           readOnly
           autoComplete="off"
           className={cn(
-            "file:border-0 file:text-sm file:font-medium placeholder:text-[#808487] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+            "file:border-0 file:text-sm file:font-medium placeholder:text-[#808487] hover:cursor-pointer focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
             className,
           )}
           ref={ref}
@@ -51,7 +51,7 @@ const Select = React.forwardRef<
       {showOptions !== undefined && (
         <div
           className={cn(
-            "flex flex-col gap-2 overflow-hidden rounded-b-md border-x-[1px] border-b-[1px] border-[#D0D5D8] bg-transparent ring-offset-background",
+            "flex flex-col gap-2 overflow-hidden rounded-b-md border-x-[1px] border-b-[1px] border-[#D0D5D8] bg-transparent ring-offset-background hover:cursor-pointer",
             {
               "animate-accordion-down duration-700 ease-out": showOptions,
               "animate-accordion-up border-none duration-700 ease-out":
