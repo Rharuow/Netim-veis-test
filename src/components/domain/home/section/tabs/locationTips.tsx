@@ -68,7 +68,11 @@ export const LocationTips = React.forwardRef<
   }, [value]);
 
   return (
-    <Card ref={ref} className={cn("overflow-hidden", className)} {...props}>
+    <Card
+      ref={ref}
+      className={cn("overflow-hidden hover:cursor-pointer", className)}
+      {...props}
+    >
       <Input
         className="text-sm placeholder:text-center placeholder:text-[#A1A7AA]"
         placeholder="Busque por cidade, região, bairro ou código"
@@ -84,7 +88,7 @@ export const LocationTips = React.forwardRef<
         ) : (
           locations.map((local, index) => (
             <div
-              className="flex gap-3 px-3 py-2"
+              className="flex gap-3 px-3 py-2 hover:bg-[#dae3e7]"
               key={index}
               onMouseDown={() =>
                 handleSelectedLocation(

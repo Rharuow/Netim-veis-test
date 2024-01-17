@@ -1,13 +1,13 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { MapPin, Bed, ChevronDown, Search } from "lucide-react";
+import { useForm, useWatch } from "react-hook-form";
 
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LocationTips } from "./locationTips";
-import { useForm, useWatch } from "react-hook-form";
-import { useEffect, useRef, useState } from "react";
 import { AmountRooms } from "./amountRooms";
 import { cn } from "@/lib/utils";
 
@@ -87,7 +87,7 @@ export const TabsSection = () => {
   }, [setIsAmountRoomsToBuyOpen]);
 
   return (
-    <div className="flex flex-col gap-6 px-4">
+    <div className="flex flex-col gap-6 px-4 lg:hidden">
       <Tabs defaultValue="rent" className=" w-full">
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="rent">Alugar</TabsTrigger>
