@@ -14,19 +14,36 @@ import { cn } from "@/lib/utils";
 export const TabsSection = () => {
   const { register, control, setValue } = useForm({
     defaultValues: {
-      location: "",
-      amountRooms: undefined,
+      locationToRent: "",
+      locationToBuy: "",
+      amountRoomsToRent: undefined,
+      amountRoomsToBuy: undefined,
     },
   });
 
-  const [isLocationTipsOpen, setIsLocationTipsOpen] = useState<boolean>();
-  const [isAmountRoomsOpen, setIsAmountRoomsOpen] = useState<boolean>();
+  const [isLocationToRentTipsOpen, setIsLocationToRentTipsOpen] =
+    useState<boolean>();
+  const [isLocationToBuyTipsOpen, setIsLocationToBuyTipsOpen] =
+    useState<boolean>();
+  const [isAmountRoomsToRentOpen, setIsAmountRoomsToRentOpen] =
+    useState<boolean>();
+  const [isAmountRoomsToBuyOpen, setIsAmountRoomsToBuyOpen] =
+    useState<boolean>();
 
-  const watchLocation = useWatch({ name: "location", control });
-  const watchAmountRooms = useWatch({ name: "amountRooms", control });
+  const watchLocationToRent = useWatch({ name: "locationToRent", control });
+  const watchLocationToBuy = useWatch({ name: "locationToBuy", control });
+  const watchAmountRoomsToRent = useWatch({
+    name: "amountRoomsToRent",
+    control,
+  });
+  const watchAmountRoomsToBuy = useWatch({ name: "amountRoomsToBuy", control });
   const inputRef = useRef<HTMLDivElement>(null);
-  const handleSelectedLocation = (value: string) => {
-    setValue("location", value);
+
+  const handleSelectedLocation = (
+    value: string,
+    field: "locationToRent" | "locationToBuy",
+  ) => {
+    setValue(field, value);
   };
 
   useEffect(() => {
@@ -36,7 +53,7 @@ export const TabsSection = () => {
         !inputRef.current.contains(event.target as Node)
       ) {
         // Clicked outside the input, so close the AmountRooms component
-        setIsAmountRoomsOpen(false);
+        setIsAmountRoomsToRentOpen(false);
       }
     };
 
@@ -47,7 +64,27 @@ export const TabsSection = () => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [setIsAmountRoomsOpen]);
+  }, [setIsAmountRoomsToRentOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(event.target as Node)
+      ) {
+        // Clicked outside the input, so close the AmountRooms component
+        setIsAmountRoomsToBuyOpen(false);
+      }
+    };
+
+    // Attach the event listener when the component mounts
+    document.addEventListener("click", handleClickOutside);
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [setIsAmountRoomsToBuyOpen]);
 
   return (
     <div className="flex flex-col gap-6 px-4">
@@ -66,19 +103,21 @@ export const TabsSection = () => {
               <Input
                 placeholder="Qual é a Localização?"
                 className="truncate"
-                onFocus={() => setIsLocationTipsOpen(true)}
-                {...register("location", {
-                  onBlur: () => setIsLocationTipsOpen(false),
+                onFocus={() => setIsLocationToRentTipsOpen(true)}
+                {...register("locationToRent", {
+                  onBlur: () => setIsLocationToRentTipsOpen(false),
                 })}
               />
             </div>
 
-            {isLocationTipsOpen !== undefined && (
+            {isLocationToRentTipsOpen !== undefined && (
               <LocationTips
-                handleSelectedLocation={handleSelectedLocation}
-                value={watchLocation}
+                handleSelectedLocation={(value) =>
+                  handleSelectedLocation(value, "locationToRent")
+                }
+                value={watchLocationToRent}
                 className={
-                  isLocationTipsOpen
+                  isLocationToRentTipsOpen
                     ? "animate-accordion-down"
                     : "animate-accordion-up border-none"
                 }
@@ -89,7 +128,7 @@ export const TabsSection = () => {
           <Card
             className="px-6 py-4"
             ref={inputRef} // Attach the ref to the Input component
-            onClick={() => setIsAmountRoomsOpen(true)}
+            onClick={() => setIsAmountRoomsToRentOpen(true)}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -102,13 +141,13 @@ export const TabsSection = () => {
                 className="flex"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsAmountRoomsOpen((prev) => !prev);
+                  setIsAmountRoomsToRentOpen((prev) => !prev);
                 }}
               >
                 <ChevronDown
                   className={cn("text-[#555555] duration-300", {
-                    "rotate-180": isAmountRoomsOpen,
-                    "rotate-0": !isAmountRoomsOpen,
+                    "rotate-180": isAmountRoomsToRentOpen,
+                    "rotate-0": !isAmountRoomsToRentOpen,
                   })}
                   size={18}
                 />
@@ -117,15 +156,15 @@ export const TabsSection = () => {
             <div className="flex">
               <Input
                 placeholder="Quantos Quartos?"
-                {...register("amountRooms")}
+                {...register("amountRoomsToRent")}
                 readOnly
               />
             </div>
-            {isAmountRoomsOpen !== undefined && (
+            {isAmountRoomsToRentOpen !== undefined && (
               <AmountRooms
-                value={watchAmountRooms}
+                value={watchAmountRoomsToRent}
                 className={
-                  isAmountRoomsOpen
+                  isAmountRoomsToRentOpen
                     ? "animate-accordion-down"
                     : "animate-accordion-up border-none"
                 }
@@ -143,19 +182,21 @@ export const TabsSection = () => {
               <Input
                 placeholder="Qual é a Localização?"
                 className="truncate"
-                onFocus={() => setIsLocationTipsOpen(true)}
-                {...register("location", {
-                  onBlur: () => setIsLocationTipsOpen(false),
+                onFocus={() => setIsLocationToBuyTipsOpen(true)}
+                {...register("locationToBuy", {
+                  onBlur: () => setIsLocationToBuyTipsOpen(false),
                 })}
               />
             </div>
 
-            {isLocationTipsOpen !== undefined && (
+            {isLocationToBuyTipsOpen !== undefined && (
               <LocationTips
-                handleSelectedLocation={handleSelectedLocation}
-                value={watchLocation}
+                handleSelectedLocation={(value) =>
+                  handleSelectedLocation(value, "locationToBuy")
+                }
+                value={watchLocationToBuy}
                 className={
-                  isLocationTipsOpen
+                  isLocationToBuyTipsOpen
                     ? "animate-accordion-down"
                     : "animate-accordion-up border-none"
                 }
@@ -163,7 +204,11 @@ export const TabsSection = () => {
             )}
           </Card>
 
-          <Card className="px-6 py-4">
+          <Card
+            className="px-6 py-4"
+            ref={inputRef} // Attach the ref to the Input component
+            onClick={() => setIsAmountRoomsToBuyOpen(true)}
+          >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bed className="text-[#A1A7AA]" />
@@ -171,13 +216,39 @@ export const TabsSection = () => {
                   Nº de Quartos
                 </p>
               </div>
-              <div className="flex">
-                <ChevronDown className={cn("text-[#555555]")} size={18} />
+              <div
+                className="flex"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsAmountRoomsToBuyOpen((prev) => !prev);
+                }}
+              >
+                <ChevronDown
+                  className={cn("text-[#555555] duration-300", {
+                    "rotate-180": isAmountRoomsToBuyOpen,
+                    "rotate-0": !isAmountRoomsToBuyOpen,
+                  })}
+                  size={18}
+                />
               </div>
             </div>
             <div className="flex">
-              <p className="text-[#808487]">Quantos Quartos?</p>
+              <Input
+                placeholder="Quantos Quartos?"
+                {...register("amountRoomsToBuy")}
+                readOnly
+              />
             </div>
+            {isAmountRoomsToBuyOpen !== undefined && (
+              <AmountRooms
+                value={watchAmountRoomsToBuy}
+                className={
+                  isAmountRoomsToBuyOpen
+                    ? "animate-accordion-down"
+                    : "animate-accordion-up border-none"
+                }
+              />
+            )}
           </Card>
         </TabsContent>
       </Tabs>
