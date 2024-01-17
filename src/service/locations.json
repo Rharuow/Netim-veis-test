@@ -1,0 +1,46 @@
+{
+  "locais": [
+    {
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "bairro": "Moema",
+      "rua": "Avenida Ibirapuera"
+    },
+    {
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "bairro": "Copacabana",
+      "rua": "Avenida Atlântica"
+    },
+    {
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "bairro": "Savassi",
+      "rua": "Rua Alagoas"
+    },
+    {
+      "cidade": "Salvador",
+      "estado": "BA",
+      "bairro": "Barra",
+      "rua": "Avenida Oceânica"
+    },
+    {
+      "cidade": "Brasília",
+      "estado": "DF",
+      "bairro": "Asa Sul",
+      "rua": "Quadra 302"
+    },
+    {
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "bairro": "Meireles",
+      "rua": "Avenida Beira Mar"
+    },
+    {
+      "cidade": "Manaus",
+      "estado": "AM",
+      "bairro": "Adrianópolis",
+      "rua": "Rua Salvador"
+    }
+  ]
+}
