@@ -128,7 +128,7 @@ export const PlacesSection = () => {
       <TabsPlaces />
 
       <div className="flex flex-col gap-10 lg:grid lg:w-[65%] lg:grid-cols-3 lg:gap-3 lg:self-center lg:overflow-hidden lg:rounded-xl lg:border-[1px] lg:border-[#D0D5D8]">
-        <div className="flex flex-col gap-10 lg:order-last lg:justify-between lg:py-10">
+        <div className="flex flex-col gap-10 lg:order-last lg:justify-around lg:pt-10">
           <div className="flex flex-col gap-3 px-4">
             <p className="font-bold text-[#ED672B]">Quer vender?</p>
 
