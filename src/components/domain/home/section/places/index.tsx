@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 import { CarouselPlaces } from "./caousel";
-import { Card, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DollarSign, KeyRound } from "lucide-react";
 
@@ -128,45 +127,47 @@ export const PlacesSection = () => {
 
       <TabsPlaces />
 
-      <div className="flex flex-col gap-10 px-4">
-        <div className="flex flex-col gap-3">
-          <p className="font-bold text-[#ED672B]">Quer vender?</p>
+      <div className="flex flex-col gap-10 lg:grid lg:w-[65%] lg:grid-cols-3 lg:gap-3 lg:self-center lg:overflow-hidden lg:rounded-xl lg:border-[1px] lg:border-[#D0D5D8]">
+        <div className="flex flex-col gap-10 lg:order-last lg:justify-between lg:py-10">
+          <div className="flex flex-col gap-3 px-4">
+            <p className="font-bold text-[#ED672B]">Quer vender?</p>
 
-          <h1 className="text-4xl font-bold text-[#4E5254]">
-            Anuncie grátis para mais de 100 mil pessoas todos os dias.
-          </h1>
-        </div>
-
-        <div className="flex flex-col gap-6">
-          <div>
-            <Button
-              variant="outline"
-              className="border-[#8A2CB1] text-[#8A2CB1]"
-            >
-              Anunciar Imóvel
-            </Button>
+            <h1 className="text-4xl font-bold text-[#4E5254]">
+              Anuncie grátis para mais de 100 mil pessoas todos os dias.
+            </h1>
           </div>
 
-          <div>
-            <Link
-              href="/"
-              className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
-            >
-              Saiba Quanto vale seu imóvel
-            </Link>
+          <div className="flex flex-col gap-6 px-4">
+            <div>
+              <Button
+                variant="outline"
+                className="border-[#8A2CB1] text-[#8A2CB1]"
+              >
+                Anunciar Imóvel
+              </Button>
+            </div>
+
+            <div>
+              <Link
+                href="/"
+                className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+              >
+                Saiba Quanto vale seu imóvel
+              </Link>
+            </div>
           </div>
         </div>
+
+        <Image
+          src="/banner-to-sellers.png"
+          alt="couple of sellers"
+          height={0}
+          width={0}
+          priority
+          sizes="100vw"
+          className="h-[192px] w-full object-cover object-top lg:col-span-2  lg:h-[420px]"
+        />
       </div>
-
-      <Image
-        src="/banner-to-sellers.png"
-        alt="couple of sellers"
-        height={0}
-        width={0}
-        priority
-        sizes="100vw"
-        className="h-[192px] w-full object-cover object-top"
-      />
 
       <CarouselPlaces />
 
