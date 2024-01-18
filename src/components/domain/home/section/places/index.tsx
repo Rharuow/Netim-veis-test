@@ -9,21 +9,41 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 import { CarouselPlaces } from "./caousel";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const PlacesSection = () => {
   return (
-    <div className="flex flex-col gap-12 overflow-hidden" id="places">
-      <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4  pt-16">
-        <h2 className="text-3xl font-bold">
-          Encontre um lugar que é a sua cara
-        </h2>
-        <p className="text-xl font-normal text-[#808587]">
-          A Netimóveis te proporciona uma experiência ágil e segura neste
-          momento tão importante que é decidir um lar.
-        </p>
+    <div
+      className="flex flex-col gap-12 overflow-hidden lg:bg-gradient-to-b lg:from-[#EDF1F4] lg:to-white"
+      id="places"
+    >
+      <div className="lg:grid lg:w-[65%] lg:grid-cols-2 lg:self-center">
+        <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4 pt-16 lg:bg-none">
+          <h2 className="text-3xl font-bold">
+            Encontre um lugar que é a sua cara
+          </h2>
+          <p className="text-xl font-normal text-[#808587]">
+            A Netimóveis te proporciona uma experiência ágil e segura neste
+            momento tão importante que é decidir um lar.
+          </p>
+        </div>
+
+        <div className="flex">
+          <Card className="hidden lg:flex lg:justify-center">
+            <Tabs defaultValue="account" className="w-[400px]">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="account">Account</TabsTrigger>
+                <TabsTrigger value="password">Password</TabsTrigger>
+              </TabsList>
+              <TabsContent value="account"></TabsContent>
+              <TabsContent value="password"> </TabsContent>{" "}
+            </Tabs>
+          </Card>
+        </div>
       </div>
 
-      <div className="px-4">
+      <div className="px-4 lg:hidden">
         <Topic
           buttonAction={() => {}}
           buttonText="Ver imóveis para Alugar"
@@ -36,7 +56,7 @@ export const PlacesSection = () => {
         />
       </div>
 
-      <div className="px-4">
+      <div className="px-4 lg:hidden">
         <Topic
           buttonAction={() => {}}
           buttonText="Ver imóveis para Comprar"
@@ -50,7 +70,7 @@ export const PlacesSection = () => {
         />
       </div>
 
-      <Separator className="border-b-2 border-[#E1E5E9]" />
+      <Separator className="border-b-2 border-[#E1E5E9] lg:hidden" />
 
       <TabsPlaces />
 
