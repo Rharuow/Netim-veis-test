@@ -9,8 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 import { CarouselPlaces } from "./caousel";
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DollarSign, KeyRound } from "lucide-react";
 
 export const PlacesSection = () => {
   return (
@@ -18,8 +19,8 @@ export const PlacesSection = () => {
       className="flex flex-col gap-12 overflow-hidden lg:bg-gradient-to-b lg:from-[#EDF1F4] lg:to-white"
       id="places"
     >
-      <div className="lg:grid lg:w-[65%] lg:grid-cols-2 lg:self-center">
-        <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4 pt-16 lg:bg-none">
+      <div className="lg:grid lg:w-[65%] lg:grid-cols-2 lg:justify-center lg:gap-10 lg:self-center lg:py-9">
+        <div className="flex flex-col gap-6 bg-gradient-to-b from-[#EDF1F4] to-white px-4 pt-16 lg:bg-none ">
           <h2 className="text-3xl font-bold">
             Encontre um lugar que é a sua cara
           </h2>
@@ -29,17 +30,70 @@ export const PlacesSection = () => {
           </p>
         </div>
 
-        <div className="flex">
-          <Card className="hidden lg:flex lg:justify-center">
-            <Tabs defaultValue="account" className="w-[400px]">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="account">Account</TabsTrigger>
-                <TabsTrigger value="password">Password</TabsTrigger>
-              </TabsList>
-              <TabsContent value="account"></TabsContent>
-              <TabsContent value="password"> </TabsContent>{" "}
-            </Tabs>
-          </Card>
+        <div className="hidden lg:flex lg:items-center">
+          <Tabs
+            defaultValue="rent"
+            className="rounded-xl px-10 py-4 lg:bg-white"
+          >
+            <TabsList className="flex w-full justify-around lg:mb-12 lg:h-full lg:w-full">
+              <TabsTrigger
+                value="rent"
+                className="flex flex-col items-center gap-2"
+              >
+                <KeyRound /> Alugar Imóvel
+              </TabsTrigger>
+              <TabsTrigger
+                value="buy"
+                className="flex flex-col items-center gap-2"
+              >
+                <DollarSign /> Comprar Imóvel
+              </TabsTrigger>
+              <TabsTrigger
+                value="announce"
+                className="flex flex-col items-center gap-2"
+              >
+                <DollarSign /> Anunciar Imóvel
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="rent">
+              <Topic
+                buttonAction={() => {}}
+                buttonText="Ver imóveis para Alugar"
+                firstLinkPath="/"
+                firstLinkText="Veja como Alugar sem Fiador"
+                secondLinkPath="/"
+                secondLinkText="Saiba como Alugar na Netimóveis"
+                subtitle="Alugue imóveis qualificados e sem repitição. Sed ut perspiciatis unde omnis iste natus error sit."
+                title="Alugue sem Complicação"
+              />
+            </TabsContent>
+            <TabsContent value="buy">
+              <Topic
+                buttonAction={() => {}}
+                buttonText="Ver imóveis para Comprar"
+                firstLinkPath="/"
+                firstLinkText="Descubra seu Poder de Compra"
+                secondLinkPath="/"
+                secondLinkText="Saiba como Comprar na Netimóveis"
+                subtitle="Compre seu imóvel com segurança e agilidade. Sed ut perspiciatis unde
+        omnis iste natus error sit."
+                title="Compre com Segurança"
+              />
+            </TabsContent>
+            <TabsContent value="announce">
+              <Topic
+                buttonAction={() => {}}
+                buttonText="Ver formas de anunciar"
+                firstLinkPath="/"
+                firstLinkText="Descubra como anunciar"
+                secondLinkPath="/"
+                secondLinkText="Saiba como Anunciar na Netimóveis"
+                subtitle="Anuncie seu imóvel com segurança e agilidade. Sed ut perspiciatis unde
+        omnis iste natus error sit."
+                title="Anuncie sem complicações"
+              />
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
 
