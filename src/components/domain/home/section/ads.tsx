@@ -8,6 +8,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 import flats from "@/service/flats.json";
@@ -18,21 +20,19 @@ import { Tag } from "@/components/ui/tag";
 
 export const AdsSection = () => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 lg:min-w-[65%] lg:self-center">
       <div className="flex flex-col px-4">
-        <p className="text-xl font-bold text-[#3A3A3A]">
+        <p className="text-xl font-bold text-[#3A3A3A] lg:text-2xl">
           Novos Anúncios em{" "}
           <span className="text-[#ED672B]">Belo Horizonte</span>
         </p>
-        <Link
-          href="/"
-          className="text-md flex items-center gap-1 text-[#2362AF]"
-        >
-          Ver todos os imóveis <ExternalLink size={14} />
-        </Link>
+        <div className="flex items-center gap-1 text-[#2362AF]">
+          <Link href="/#">Ver todos os imóveis</Link>
+          <ExternalLink size={14} />
+        </div>
       </div>
 
-      <Carousel className="w-full  ps-4">
+      <Carousel className="w-full ps-4">
         <CarouselContent className="w-80">
           {flats.map((flat, index) => (
             <CarouselItem key={index}>
@@ -93,6 +93,10 @@ export const AdsSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <div className="absolute right-12 top-[-50px] hidden lg:flex">
+          <CarouselNext />
+          <CarouselPrevious />
+        </div>
       </Carousel>
     </div>
   );
