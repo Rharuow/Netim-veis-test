@@ -5,7 +5,7 @@ import Link from "next/link";
 export const EnterpriseSection = () => {
   return (
     <div className="flex flex-col gap-6 bg-[#1C2A39] lg:grid lg:w-[65%] lg:grid-cols-2 lg:self-center lg:overflow-hidden lg:rounded-xl">
-      <div className="flex flex-col gap-6 px-16 lg:flex-row lg:flex-wrap lg:py-10">
+      <div className="flex flex-col gap-6 lg:flex-row lg:flex-wrap lg:px-16 lg:py-10">
         <div className="flex flex-col gap-4 px-4 pt-10 lg:px-0 lg:pt-0">
           <div>
             <Button
