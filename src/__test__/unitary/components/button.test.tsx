@@ -144,4 +144,31 @@ describe("Test button componenet", () => {
     // Clean up the spy
     consoleSpy.mockRestore();
   });
+
+  test("should call the provided onMouseEnter handler when the mouse enter are trigged", () => {
+    // Spy on console.log
+    const consoleSpy = jest.spyOn(console, "log");
+
+    render(
+      <Button
+        onMouseEnter={() => {
+          console.log("on mouse enter triggered");
+        }}
+      >
+        test
+      </Button>,
+    );
+
+    // Find the button using its text content
+    const button = screen.getByText("test");
+
+    // Simulate a mouse enter event on the button
+    fireEvent.mouseEnter(button);
+
+    // Assert that console.log has been called with the correct message
+    expect(consoleSpy).toHaveBeenCalledWith("on mouse enter triggered");
+
+    // Clean up the spy
+    consoleSpy.mockRestore();
+  });
 });
