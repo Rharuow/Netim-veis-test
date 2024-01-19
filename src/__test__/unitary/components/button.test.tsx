@@ -117,4 +117,31 @@ describe("Test button componenet", () => {
     // Clean up the spy
     consoleSpy.mockRestore();
   });
+
+  test("should call the provided onMouseDown handler when the mouse down are trigged", () => {
+    // Spy on console.log
+    const consoleSpy = jest.spyOn(console, "log");
+
+    render(
+      <Button
+        onMouseDown={() => {
+          console.log("on mouse down triggered");
+        }}
+      >
+        test
+      </Button>,
+    );
+
+    // Find the button using its text content
+    const button = screen.getByText("test");
+
+    // Simulate a mouse down event on the button
+    fireEvent.mouseDown(button);
+
+    // Assert that console.log has been called with the correct message
+    expect(consoleSpy).toHaveBeenCalledWith("on mouse down triggered");
+
+    // Clean up the spy
+    consoleSpy.mockRestore();
+  });
 });
