@@ -8,6 +8,15 @@ describe("Test button componenet", () => {
 
     const button = screen.getByText("test");
 
-    expect(button).toBeInTheDocument();
+    return expect(button).toBeInTheDocument();
+  });
+
+  test("should remder button with background red", () => {
+    render(<Button className="bg-red-500">test</Button>);
+
+    const button = screen.getByText("test");
+    console.log(button.style);
+
+    return expect(button.className.includes("bg-red-500")).toBeTruthy();
   });
 });
