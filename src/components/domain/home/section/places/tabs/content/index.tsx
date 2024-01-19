@@ -17,7 +17,7 @@ export const Content = ({
   return (
     <>
       <div className="flex flex-col gap-6 px-4">
-        <h1 className="text-[#393B3D] font-bold text-4xl">{title}</h1>
+        <h1 className="text-4xl font-bold text-[#393B3D]">{title}</h1>
         <p className="text-[#4E5254]">{subtitle}</p>
       </div>
       <div className="flex px-4">
@@ -36,7 +36,7 @@ export const Content = ({
         width={0}
         height={0}
         sizes="100vw"
-        className="h-[208px] object-cover object-right w-full"
+        className="h-[208px] w-full object-cover object-right lg:hidden"
       />
     </>
   );

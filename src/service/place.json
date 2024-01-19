@@ -25,5 +25,23 @@
     },
     "placeId": 5,
     "imageUrl": null
+  },
+  {
+    "name": "São Paulo",
+    "state": {
+      "name": "São Paulo",
+      "shortname": "SP"
+    },
+    "placeId": 7,
+    "imageUrl": null
+  },
+  {
+    "name": "São Paulo",
+    "state": {
+      "name": "São Paulo",
+      "shortname": "SP"
+    },
+    "placeId": 6,
+    "imageUrl": null
   }
 ]

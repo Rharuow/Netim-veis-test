@@ -25,39 +25,45 @@ export const Topic = ({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex gap-6">
-        <div className="after:border after:border-[#E95808]"></div>
-        <div className="w-full">
-          <p className="text-2xl font-bold text-[#4E5254]">{title}</p>
-          <p className="text-[#808587] ">{subtitle}</p>
+        <div className="after:border after:border-[#E95808] lg:hidden"></div>
+        <div className="w-full lg:flex lg:flex-col lg:gap-4">
+          <p className="text-2xl font-bold text-[#4E5254] lg:text-4xl">
+            {title}
+          </p>
+          <p className="text-[#808587]">{subtitle}</p>
         </div>
       </div>
-      <Button
-        variant="outline"
-        className=" border border-[#8A2CB1] text-[#8A2CB1]"
-        onClick={(e) => {
-          console.log(e);
-        }}
-        {...(buttonAction && { onClick: buttonAction })}
-      >
-        {buttonText}
-      </Button>
-
       <div>
-        <Link
-          href={firstLinkPath}
-          className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+        <Button
+          variant="outline"
+          className=" border border-[#8A2CB1] text-[#8A2CB1]"
+          onClick={(e) => {
+            console.log(e);
+          }}
+          {...(buttonAction && { onClick: buttonAction })}
         >
-          {firstLinkText}
-        </Link>
+          {buttonText}
+        </Button>
       </div>
 
-      <div>
-        <Link
-          href={secondLinkPath}
-          className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
-        >
-          {secondLinkText}
-        </Link>
+      <div className="flex flex-col gap-4">
+        <div>
+          <Link
+            href={firstLinkPath}
+            className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+          >
+            {firstLinkText}
+          </Link>
+        </div>
+
+        <div>
+          <Link
+            href={secondLinkPath}
+            className="border-b border-[#C0C7CA] text-sm text-[#393B3D]"
+          >
+            {secondLinkText}
+          </Link>
+        </div>
       </div>
     </div>
   );
