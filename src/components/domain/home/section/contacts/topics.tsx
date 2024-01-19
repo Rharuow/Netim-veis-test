@@ -6,7 +6,7 @@ export const Topics = ({
   topics: Array<string>;
 }) => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 pb-8">
       <p className="font-bold text-[#063D7E]">{title}</p>
 
       <div className="flex flex-col gap-3">
