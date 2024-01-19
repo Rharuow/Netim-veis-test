@@ -2,7 +2,7 @@ import React from "react";
 
 export const Content = () => {
   return (
-    <div className="flex flex-col gap-12 pt-8 lg:grid lg:grid-cols-3">
+    <div className="flex flex-col gap-12 pt-8 lg:grid lg:grid-cols-4">
       <div className="grid grid-cols-2 lg:hidden">
         <div className="flex flex-col gap-4">
           <p className="font-bold text-[#555555]">Alugar</p>
