@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 describe("Test button componenet", () => {
   test("should render button with text test", () => {
@@ -89,5 +89,32 @@ describe("Test button componenet", () => {
     const button = screen.getByText("test");
 
     expect(button).toHaveClass("h-9 rounded-md px-3");
+  });
+
+  test("should call the provided onClick handler when clicked", () => {
+    // Spy on console.log
+    const consoleSpy = jest.spyOn(console, "log");
+
+    render(
+      <Button
+        onClick={() => {
+          console.log("on click triggered");
+        }}
+      >
+        test
+      </Button>,
+    );
+
+    // Find the button using its text content
+    const button = screen.getByText("test");
+
+    // Simulate a click event on the button
+    fireEvent.click(button);
+
+    // Assert that console.log has been called with the correct message
+    expect(consoleSpy).toHaveBeenCalledWith("on click triggered");
+
+    // Clean up the spy
+    consoleSpy.mockRestore();
   });
 });
