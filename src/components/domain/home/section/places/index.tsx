@@ -171,8 +171,8 @@ export const PlacesSection = () => {
 
       <CarouselPlaces />
 
-      <div className="px-4">
-        <div className="relative overflow-hidden rounded-lg">
+      <div className="px-4 lg:flex lg:w-[65%] lg:justify-center lg:self-center lg:px-0">
+        <div className="relative overflow-hidden rounded-lg lg:w-full">
           <Image
             alt="Portugal banner"
             src="/portugal-banner.png"
@@ -180,14 +180,14 @@ export const PlacesSection = () => {
             width={0}
             priority
             sizes="100vw"
-            className="h-[208px] w-full object-cover object-top"
+            className="h-[208px] w-full object-cover object-top lg:h-[160px] lg:object-center"
           />
 
-          <p className="absolute left-4 top-8 z-10 text-2xl font-bold text-white">
+          <p className="absolute left-4 top-8 z-10 text-2xl font-bold text-white lg:bottom-1/2 lg:w-[374px] lg:translate-y-1/2">
             Encontre a oportunidade Perfeita em Portugal
           </p>
           <Button
-            className="absolute bottom-8 left-4 z-10 bg-white text-[#E95808]"
+            className="absolute bottom-8 left-4 z-10 bg-white text-[#E95808] lg:bottom-1/2 lg:left-auto lg:right-16 lg:w-[220px] lg:translate-y-1/2"
             onClick={() => console.log("go to portugal properties")}
           >
             Ver imóveis em Portugal
