@@ -7,16 +7,18 @@ import { Button } from "../ui/button";
 
 export const Header = () => {
   return (
-    <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3 lg:justify-normal lg:gap-12">
-      <Image
-        src="/logo.png"
-        priority
-        alt="Logo of Netimóveis"
-        width={0}
-        height={0}
-        sizes="100vw"
-        className="h-[36px] w-[126px]"
-      />
+    <div className="sticky top-0 z-10 flex items-center justify-between bg-white p-3 lg:justify-around lg:gap-12">
+      <div className="lg:flex lg:grow lg:justify-end">
+        <Image
+          src="/logo.png"
+          priority
+          alt="Logo of Netimóveis"
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="h-[36px] w-[126px]"
+        />
+      </div>
 
       <div className="hidden lg:flex lg:grow lg:gap-10">
         <Link className="text-[#555555]" href="/#places">

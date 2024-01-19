@@ -14,7 +14,7 @@ import { Card } from "@/components/ui/card";
 
 export const CarouselPlaces = () => {
   return (
-    <div className="relative grid grid-cols-3 gap-y-6 px-4">
+    <div className="relative grid grid-cols-3 gap-y-6 px-4 lg:w-[65%] lg:self-center lg:px-0">
       <p className="col-span-2 font-bold text-[#4E5254]">
         Prontos para te Receber em mais de 10 estados
       </p>
@@ -25,7 +25,7 @@ export const CarouselPlaces = () => {
             {places.map((place) => (
               <CarouselItem
                 key={place.placeId}
-                className="flex basis-4/5 flex-col gap-6"
+                className="flex basis-4/5 flex-col gap-6 lg:basis-1/4"
               >
                 {place.imageUrl ? (
                   <Card className="relative overflow-hidden">
@@ -55,16 +55,16 @@ export const CarouselPlaces = () => {
                   </div>
                 )}
                 <ul className="flex list-inside list-disc flex-col gap-2 marker:text-[#ED672B]">
-                  <li className="text-sm text-[#4E5254]">
+                  <li className="truncate text-sm text-[#4E5254]">
                     Casas à venda em {place.name}
                   </li>
-                  <li className="text-sm text-[#4E5254]">
+                  <li className="truncate text-sm text-[#4E5254]">
                     Apto. à venda em {place.name}
                   </li>
-                  <li className="text-sm text-[#4E5254]">
+                  <li className="truncate text-sm text-[#4E5254]">
                     Casas para Locação em {place.name}
                   </li>
-                  <li className="text-sm text-[#4E5254]">
+                  <li className="truncate text-sm text-[#4E5254]">
                     Apto. para locação em {place.name}
                   </li>
                 </ul>
