@@ -1,4 +1,9 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent, within } from "@testing-library/react";
 
@@ -70,8 +75,8 @@ describe("Test Card component", () => {
       </Card>,
     );
 
-    const cardContent = screen.getByText("testCardContent");
-    const card = cardContent.closest(".rounded-lg") as HTMLElement | null;
+    const cardFooter = screen.getByText("testCardContent");
+    const card = cardFooter.closest(".rounded-lg") as HTMLElement | null;
 
     // Use Testing Library utilities to assert that CardContent is a child of Card
     expect(card).toBeInTheDocument();
@@ -79,6 +84,25 @@ describe("Test Card component", () => {
     if (card) {
       const { getByText } = within(card);
       expect(getByText("testCardContent")).toBeInTheDocument();
+    }
+  });
+
+  test("should render Card with a CardFooter as a child containing text 'testCardFooter'", () => {
+    render(
+      <Card>
+        <CardFooter>testCardFooter</CardFooter>
+      </Card>,
+    );
+
+    const cardContent = screen.getByText("testCardFooter");
+    const card = cardContent.closest(".rounded-lg") as HTMLElement | null;
+
+    // Use Testing Library utilities to assert that CardFooter is a child of Card
+    expect(card).toBeInTheDocument();
+
+    if (card) {
+      const { getByText } = within(card);
+      expect(getByText("testCardFooter")).toBeInTheDocument();
     }
   });
 });
