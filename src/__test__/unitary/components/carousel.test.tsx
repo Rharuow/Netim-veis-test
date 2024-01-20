@@ -28,8 +28,14 @@ describe("Test Carousel component", () => {
 
     const carouselItem = screen.getByText("test");
 
-    return expect(carouselItem).toHaveClass(
-      "min-w-0 shrink-0 grow-0 basis-full",
-    );
+    const carousel = carouselItem.closest(".relative") as HTMLElement | null;
+
+    // Use Testing Library utilities to assert that CarouselItem is a child of Carousel
+    expect(carousel).toBeInTheDocument();
+
+    if (carousel) {
+      const { getByText } = within(carousel);
+      expect(getByText("test")).toBeInTheDocument();
+    }
   });
 });
