@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-describe("Test button componenet", () => {
+describe("Test button component", () => {
   test("should render button with text test", () => {
     render(<Button>test</Button>);
 
