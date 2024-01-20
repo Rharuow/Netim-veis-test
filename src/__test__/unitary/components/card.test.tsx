@@ -10,4 +10,12 @@ describe("Test Card component", () => {
 
     return expect(card).toBeInTheDocument();
   });
+
+  test("should render Card with text test and the class containing 'testClassName'", () => {
+    render(<Card className="testClassName">test</Card>);
+
+    const card = screen.getByText("test");
+
+    return expect(card).toHaveClass("testClassName");
+  });
 });
