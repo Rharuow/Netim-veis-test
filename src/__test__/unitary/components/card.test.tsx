@@ -1,6 +1,6 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader } from "@/components/ui/card";
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 
 describe("Test Card component", () => {
   test("should render Card with text test", () => {
@@ -42,5 +42,24 @@ describe("Test Card component", () => {
 
     // Clean up the spy
     consoleSpy.mockRestore();
+  });
+
+  test("should render Card with a CardHeader as a child containing text 'testCardHeader'", () => {
+    render(
+      <Card>
+        <CardHeader>testCardHeader</CardHeader>
+      </Card>,
+    );
+
+    const cardHeader = screen.getByText("testCardHeader");
+    const card = cardHeader.closest(".rounded-lg") as HTMLElement | null;
+
+    // Use Testing Library utilities to assert that CardHeader is a child of Card
+    expect(card).toBeInTheDocument();
+
+    if (card) {
+      const { getByText } = within(card);
+      expect(getByText("testCardHeader")).toBeInTheDocument();
+    }
   });
 });
