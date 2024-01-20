@@ -10,4 +10,11 @@ describe("Test input component", () => {
 
     return expect(input).toBeInTheDocument();
   });
+
+  test("should render input with class 'bg-red-500'", () => {
+    render(<Input className="bg-red-500" />);
+
+    const input = screen.getByRole("textbox");
+    expect(input).toHaveClass("bg-red-500");
+  });
 });
