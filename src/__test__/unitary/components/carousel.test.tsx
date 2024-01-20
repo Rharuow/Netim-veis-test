@@ -31,6 +31,18 @@ describe("Test Carousel component", () => {
     return expect(carousel).toHaveClass("testClassName");
   });
 
+  test("should render CarouselItem with text test and the class containing 'testClassName'", () => {
+    render(
+      <Carousel>
+        <CarouselItem className="testClassName">test</CarouselItem>
+      </Carousel>,
+    );
+
+    const carouselItem = screen.getByText("test");
+
+    return expect(carouselItem).toHaveClass("testClassName");
+  });
+
   test("should render Carousel with a CarouselItem as a child containing text 'test'", () => {
     render(
       <Carousel>
