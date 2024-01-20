@@ -58,6 +58,14 @@ describe("Test Card component", () => {
     return expect(cardHeader).toHaveClass("testClassName");
   });
 
+  test("should render CardContent with text test and the class containing 'testClassName'", () => {
+    render(<CardContent className="testClassName">test</CardContent>);
+
+    const cardContent = screen.getByText("test");
+
+    return expect(cardContent).toHaveClass("testClassName");
+  });
+
   test("should render Card with text test and call the provided onClick handler when clicked", () => {
     const consoleSpy = jest.spyOn(console, "log");
     render(
