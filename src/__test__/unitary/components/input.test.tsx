@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Test input component", () => {
   test("should render input with text test", () => {
@@ -73,6 +74,31 @@ describe("Test input component", () => {
 
     // Assert that console.log has been called with the correct message
     expect(consoleSpy).toHaveBeenCalledWith("on focus triggered");
+
+    // Clean up the spy
+    consoleSpy.mockRestore();
+  });
+
+  test("should call the provided onChange handler when change", () => {
+    // Spy on console.log
+    const consoleSpy = jest.spyOn(console, "log");
+
+    render(
+      <Input
+        onChange={() => {
+          console.log("on change triggered");
+        }}
+      />,
+    );
+
+    // Find the input using its textbox role
+    const input = screen.getByRole("textbox");
+
+    // Simulate a change event on the input
+    userEvent.type(input, "a");
+
+    // Assert that console.log has been called with the correct message
+    expect(consoleSpy).toHaveBeenCalledWith("on change triggered");
 
     // Clean up the spy
     consoleSpy.mockRestore();
