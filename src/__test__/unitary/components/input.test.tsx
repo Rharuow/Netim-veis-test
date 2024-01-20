@@ -52,4 +52,29 @@ describe("Test input component", () => {
     // Clean up the spy
     consoleSpy.mockRestore();
   });
+
+  test("should call the provided onFocus handler when clicked", () => {
+    // Spy on console.log
+    const consoleSpy = jest.spyOn(console, "log");
+
+    render(
+      <Input
+        onFocus={() => {
+          console.log("on focus triggered");
+        }}
+      />,
+    );
+
+    // Find the input using its textbox role
+    const input = screen.getByRole("textbox");
+
+    // Simulate a focus event on the input
+    fireEvent.focus(input);
+
+    // Assert that console.log has been called with the correct message
+    expect(consoleSpy).toHaveBeenCalledWith("on focus triggered");
+
+    // Clean up the spy
+    consoleSpy.mockRestore();
+  });
 });
