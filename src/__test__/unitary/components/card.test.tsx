@@ -16,6 +16,16 @@ describe("Test Card component", () => {
     return expect(card).toBeInTheDocument();
   });
 
+  test("should render Card with text test and the class containing 'rounded-lg border bg-card text-card-foreground shadow-sm'", () => {
+    render(<Card>test</Card>);
+
+    const card = screen.getByText("test");
+
+    return expect(card).toHaveClass(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+    );
+  });
+
   test("should render Card with text test and the class containing 'testClassName'", () => {
     render(<Card className="testClassName">test</Card>);
 
