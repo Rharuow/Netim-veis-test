@@ -26,12 +26,28 @@ describe("Test Card component", () => {
     );
   });
 
+  test("should render CardHeader with text test and the class containing 'flex flex-col space-y-1.5 p-6'", () => {
+    render(<CardHeader>test</CardHeader>);
+
+    const cardHeader = screen.getByText("test");
+
+    return expect(cardHeader).toHaveClass("flex flex-col space-y-1.5 p-6");
+  });
+
   test("should render Card with text test and the class containing 'testClassName'", () => {
     render(<Card className="testClassName">test</Card>);
 
     const card = screen.getByText("test");
 
     return expect(card).toHaveClass("testClassName");
+  });
+
+  test("should render CardHeader with text test and the class containing 'testClassName'", () => {
+    render(<CardHeader className="testClassName">test</CardHeader>);
+
+    const cardHeader = screen.getByText("test");
+
+    return expect(cardHeader).toHaveClass("testClassName");
   });
 
   test("should render Card with text test and call the provided onClick handler when clicked", () => {
