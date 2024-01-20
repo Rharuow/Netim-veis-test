@@ -34,6 +34,14 @@ describe("Test Card component", () => {
     return expect(cardHeader).toHaveClass("flex flex-col space-y-1.5 p-6");
   });
 
+  test("should render CardContent with text test and the class containing 'p-6 pt-0'", () => {
+    render(<CardContent>test</CardContent>);
+
+    const cardContent = screen.getByText("test");
+
+    return expect(cardContent).toHaveClass("p-6 pt-0");
+  });
+
   test("should render Card with text test and the class containing 'testClassName'", () => {
     render(<Card className="testClassName">test</Card>);
 
