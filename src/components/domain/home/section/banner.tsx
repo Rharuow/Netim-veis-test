@@ -51,10 +51,15 @@ export const Banner = () => {
           <p className="text-2xl font-bold uppercase text-white">ALUGA.</p>
           <p className="text-2xl font-bold uppercase text-white">CONECTA.</p>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="hidden lg:flex lg:flex-col lg:gap-1">
           <div className="hidden lg:flex lg:rounded-full lg:bg-white">
             <label
-              className="flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
+              className={cn(
+                "flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2",
+                {
+                  "bg-[#EDF1F4] shadow-md": isLocationTipsOpen,
+                },
+              )}
               onClick={() => {
                 setIsAmountRoomsOpen(false);
               }}
@@ -74,7 +79,12 @@ export const Banner = () => {
             </label>
 
             <div
-              className="relative flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
+              className={cn(
+                "relative flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2",
+                {
+                  "bg-[#EDF1F4] shadow-md": isAmountRoomsOpen,
+                },
+              )}
               onClick={() => {
                 setIsAmountRoomsOpen((prev) => !prev);
                 setIsLocationTipsOpen(false);
