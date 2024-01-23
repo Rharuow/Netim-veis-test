@@ -10,7 +10,7 @@ import { AmountRooms } from "./tabs/amountRooms";
 import { Button } from "@/components/ui/button";
 
 export const Banner = () => {
-  const { register, control, setValue } = useForm({
+  const { register, control, setValue, getValues } = useForm({
     defaultValues: {
       location: "",
       amountRooms: undefined,
@@ -122,6 +122,9 @@ export const Banner = () => {
             {isAmountRoomsOpen !== undefined && (
               <AmountRooms
                 value={watchAmountRooms}
+                handleSelectedLocation={(value: string) =>
+                  handleSelectedLocation(value, "amountRooms")
+                }
                 className={
                   isAmountRoomsOpen
                     ? "animate-accordion-down"
