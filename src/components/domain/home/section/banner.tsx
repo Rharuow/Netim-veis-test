@@ -53,11 +53,10 @@ export const Banner = () => {
         </div>
         <div className="flex flex-col gap-1">
           <div className="hidden lg:flex lg:rounded-full lg:bg-white">
-            <div
+            <label
               className="flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
               onClick={() => {
                 setIsAmountRoomsOpen(false);
-                setIsLocationTipsOpen((prev) => !prev);
               }}
             >
               <div className="flex items-center gap-1 px-3">
@@ -72,7 +71,7 @@ export const Banner = () => {
                   onBlur: () => setIsLocationTipsOpen(false),
                 })}
               />
-            </div>
+            </label>
 
             <div
               className="relative flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
