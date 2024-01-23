@@ -95,7 +95,7 @@ export const Banner = () => {
                 />
               </div>
               <Button
-                className="absolute bottom-1/2 right-3 translate-y-1/2 transform rounded-full bg-[#F36C21] p-2"
+                className="absolute bottom-1/2 right-3 translate-y-1/2 transform rounded-full bg-[#F36C21] p-2 hover:bg-[#E95808]"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
