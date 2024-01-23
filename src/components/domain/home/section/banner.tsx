@@ -10,7 +10,7 @@ import { AmountRooms } from "./tabs/amountRooms";
 import { Button } from "@/components/ui/button";
 
 export const Banner = () => {
-  const { register, control, setValue } = useForm({
+  const { register, control, setValue, getValues } = useForm({
     defaultValues: {
       location: "",
       amountRooms: undefined,
@@ -51,13 +51,17 @@ export const Banner = () => {
           <p className="text-2xl font-bold uppercase text-white">ALUGA.</p>
           <p className="text-2xl font-bold uppercase text-white">CONECTA.</p>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="hidden lg:flex lg:flex-col lg:gap-1">
           <div className="hidden lg:flex lg:rounded-full lg:bg-white">
-            <div
-              className="flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
+            <label
+              className={cn(
+                "flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2",
+                {
+                  "bg-[#EDF1F4] shadow-md": isLocationTipsOpen,
+                },
+              )}
               onClick={() => {
                 setIsAmountRoomsOpen(false);
-                setIsLocationTipsOpen((prev) => !prev);
               }}
             >
               <div className="flex items-center gap-1 px-3">
@@ -72,10 +76,15 @@ export const Banner = () => {
                   onBlur: () => setIsLocationTipsOpen(false),
                 })}
               />
-            </div>
+            </label>
 
             <div
-              className="relative flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2"
+              className={cn(
+                "relative flex grow flex-col rounded-full hover:cursor-pointer hover:bg-[#EDF1F4] lg:px-3 lg:py-2",
+                {
+                  "bg-[#EDF1F4] shadow-md": isAmountRoomsOpen,
+                },
+              )}
               onClick={() => {
                 setIsAmountRoomsOpen((prev) => !prev);
                 setIsLocationTipsOpen(false);
@@ -96,7 +105,7 @@ export const Banner = () => {
                 />
               </div>
               <Button
-                className="absolute bottom-1/2 right-3 translate-y-1/2 transform rounded-full bg-[#F36C21] p-2"
+                className="absolute bottom-1/2 right-3 translate-y-1/2 transform rounded-full bg-[#F36C21] p-2 hover:bg-[#E95808]"
                 onClick={(e) => {
                   e.stopPropagation();
                 }}
@@ -123,6 +132,9 @@ export const Banner = () => {
             {isAmountRoomsOpen !== undefined && (
               <AmountRooms
                 value={watchAmountRooms}
+                handleSelectedLocation={(value: string) =>
+                  handleSelectedLocation(value, "amountRooms")
+                }
                 className={
                   isAmountRoomsOpen
                     ? "animate-accordion-down"

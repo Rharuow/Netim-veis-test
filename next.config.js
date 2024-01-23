@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "offloadmedia.feverup.com",
       },
+      {
+        protocol: "https",
+        hostname: "cf.bstatic.com",
+      },
     ],
   },
 };
