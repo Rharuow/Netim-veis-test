@@ -81,26 +81,20 @@ describe("Test input component", () => {
 
   test("should call the provided onChange handler when change", () => {
     // Spy on console.log
-    const consoleSpy = jest.spyOn(console, "log");
+    const handleChange = jest.fn();
 
-    render(
-      <Input
-        onChange={() => {
-          console.log("on change triggered");
-        }}
-      />,
-    );
+    render(<Input onChange={handleChange} />);
 
-    // Find the input using its textbox role
-    const input = screen.getByRole("textbox");
+    const inputElement = screen.getByRole("textbox");
 
-    // Simulate a change event on the input
-    userEvent.type(input, "a");
+    // Simulate a change in the input value
+    fireEvent.change(inputElement, { target: { value: "new value" } });
 
-    // Assert that console.log has been called with the correct message
-    expect(consoleSpy).toHaveBeenCalledWith("on change triggered");
+    // Check if the onChange function has been called
+    expect(handleChange).toHaveBeenCalledTimes(1);
 
-    // Clean up the spy
-    consoleSpy.mockRestore();
+    // Extract the value from the event argument and check if it matches the expectation
+    const eventArgument = handleChange.mock.calls[0][0];
+    expect(eventArgument.target.value).toBe("new value");
   });
 });
