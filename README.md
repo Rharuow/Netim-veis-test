@@ -61,6 +61,18 @@ cd ./Netim-veis-test && yarn && yarn dev
 cd ./Netim-veis-test && npm i && npm run dev
 ```
 
+### Rodando testes
+
+```bash
+# with yarn
+cd ./Netim-veis-test && yarn && yarn test
+```
+
+```bash
+# with npm
+cd ./Netim-veis-test && npm i && npm run test
+```
+
 ## Extras
 
 Optei por fazer um versionamento baseado em PR e MR, simulando um projeto trabalhado em equipe. Todo o histórico de PR e MR encontrasse aqui nesse repositorio. Os PR e MR eram baseados em 3 fatores.
