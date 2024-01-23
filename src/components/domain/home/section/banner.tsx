@@ -46,7 +46,7 @@ export const Banner = () => {
         className="h-[173px] w-full object-cover lg:h-[640px] lg:object-right"
       />
       <div className="absolute left-16 top-[40px] flex flex-col lg:left-1/2 lg:top-32 lg:min-w-[60%] lg:-translate-x-1/2 lg:transform lg:gap-8">
-        <div className="flex justify-center">
+        <div className="flex flex-col justify-center lg:flex-row">
           <p className="text-2xl font-bold uppercase text-white">VENDE.</p>
           <p className="text-2xl font-bold uppercase text-white">ALUGA.</p>
           <p className="text-2xl font-bold uppercase text-white">CONECTA.</p>
@@ -106,7 +106,7 @@ export const Banner = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2">
+          <div className="hidden lg:grid lg:grid-cols-2">
             {isLocationTipsOpen !== undefined && (
               <LocationTips
                 handleSelectedLocation={(value) =>
