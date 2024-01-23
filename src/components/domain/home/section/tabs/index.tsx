@@ -16,8 +16,8 @@ export const TabsSection = () => {
     defaultValues: {
       locationToRent: "",
       locationToBuy: "",
-      amountRoomsToRent: undefined,
-      amountRoomsToBuy: undefined,
+      amountRoomsToRent: "",
+      amountRoomsToBuy: "",
     },
   });
 
@@ -42,6 +42,13 @@ export const TabsSection = () => {
   const handleSelectedLocation = (
     value: string,
     field: "locationToRent" | "locationToBuy",
+  ) => {
+    setValue(field, value);
+  };
+
+  const handleSelectedAmountRooms = (
+    value: string,
+    field: "amountRoomsToRent" | "amountRoomsToBuy",
   ) => {
     setValue(field, value);
   };
@@ -163,6 +170,9 @@ export const TabsSection = () => {
             {isAmountRoomsToRentOpen !== undefined && (
               <AmountRooms
                 value={watchAmountRoomsToRent}
+                handleSelectedLocation={(value) =>
+                  handleSelectedAmountRooms(value, "amountRoomsToRent")
+                }
                 className={
                   isAmountRoomsToRentOpen
                     ? "animate-accordion-down"
@@ -242,6 +252,9 @@ export const TabsSection = () => {
             {isAmountRoomsToBuyOpen !== undefined && (
               <AmountRooms
                 value={watchAmountRoomsToBuy}
+                handleSelectedLocation={(value) =>
+                  handleSelectedAmountRooms(value, "amountRoomsToBuy")
+                }
                 className={
                   isAmountRoomsToBuyOpen
                     ? "animate-accordion-down"
